@@ -4,7 +4,6 @@ Welcome to our project's git repository. Here you can find every documents about
 ## TODO 
 
 20/10/16
-- Prepare the appointment (Make a doc with all the questions we have to ask to the manager)
 - Prepare the delivery with 
 	- The team list and their functions
 	- The document style description (style text, excel)
@@ -12,13 +11,9 @@ Welcome to our project's git repository. Here you can find every documents about
 	- The rules of the documents access and protection
 	- The cost tables with the good style and prevision
 
-20/10/16
-- Do the reunion
-
 21/10/16
-- Send the delivery to Mr.ROTTELEUR (cc. genthial, occello)
+- Send the delivery to Mr.ROTTELEUR (cc. mr. genthial, mr. occello, mr. massot)
 
 After
-- Make a "compte-rendu" of the reunion
-- Send it to genthial/metge
-
+- Make a "compte-rendu" of the reunion and send it to Mr. Genthial, Mrs. Metge and Mr. Massot
+- Take an appointment with Mr. Occello / Mr. Jean to 
