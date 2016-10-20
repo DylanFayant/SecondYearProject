@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-10-13" view-index="0" gantt-divider-location="353" resource-divider-location="507" version="2.8.1" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-11-02" view-index="0" gantt-divider-location="564" resource-divider-location="507" version="2.8.1" locale="fr_FR">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="199" order="0"/>
-        <field id="tpd4" name="Date de début" width="75" order="1"/>
-        <field id="tpd5" name="Date de fin" width="75" order="2"/>
+    <view zooming-state="default:1" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="334" order="0"/>
+        <field id="tpd4" name="Date de début" width="116" order="1"/>
+        <field id="tpd5" name="Date de fin" width="110" order="2"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="234" order="0"/>
@@ -146,36 +146,61 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="6" name="Projet S3" color="#8cb6ce" meeting="false" start="2016-09-29" duration="54" complete="0" expand="true"/>
-        <task id="0" name="Réunion début" color="#8cb6ce" meeting="false" start="2016-10-20" duration="1" complete="0" expand="true"/>
-        <task id="25" name="Preparer délivrable gestion" color="#8cb6ce" meeting="false" start="2016-10-24" duration="6" complete="0" expand="true"/>
-        <task id="2" name="Rendre delivrable gestion" color="#8cb6ce" meeting="false" start="2016-10-21" duration="1" complete="0" expand="true">
-            <depend id="25" type="2" difference="0" hardness="Strong"/>
+        <task id="6" name="Projet S3" color="#8cb6ce" meeting="false" start="2016-10-13" duration="44" complete="0" expand="true">
+            <task id="52" name="Préparation livrable 1 (Gestion 1)" color="#8cb6ce" meeting="false" start="2016-10-13" duration="6" complete="0" expand="true">
+                <notes><![CDATA[Gantt à jour, suivi des coûts, descriptif de l'approche documentaire. ]]></notes>
+                <depend id="50" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="51" name="Réunion de lancement" color="#8cb6ce" meeting="false" start="2016-10-20" duration="1" complete="0" expand="true">
+                <notes><![CDATA[Dans les locaux de l'entreprise TMM]]></notes>
+                <depend id="53" type="2" difference="0" hardness="Strong"/>
+                <depend id="74" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="74" name="Compte rendu de réunion" color="#8cb6ce" meeting="false" start="2016-10-21" duration="1" complete="0" expand="true"/>
+            <task id="50" name="Rendre livrable 1 (Gestion 1)" color="#8cb6ce" meeting="false" start="2016-10-21" duration="1" complete="0" expand="true">
+                <notes><![CDATA[Gantt à jour, suivi des coûts, descriptif de l'approche documentaire. 
+
+Destinataires: M.ROTTELEUR, M.GENTHIAL, M.OCCELLO]]></notes>
+                <depend id="55" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="53" name="Préparation livrable 2 (Besoins Fonctionnels 1)" color="#8cb6ce" meeting="false" start="2016-10-21" duration="8" complete="0" expand="true">
+                <notes><![CDATA[Charges d'Utilisation, Charge du système, Cas d'utilisation]]></notes>
+                <depend id="54" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="54" name="Rendre livrable 2 (Besoins Fonctionnels 1)" color="#8cb6ce" meeting="false" start="2016-11-03" duration="1" complete="0" expand="true">
+                <notes><![CDATA[Charges d'Utilisation, Charge du système, Cas d'utilisation
+
+Destinataires: M.OCCELLO, M.ROTTELEUR, M.GENTHIAL]]></notes>
+                <depend id="57" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="55" name="Préparation livrable 3 (Gestion 2)" color="#8cb6ce" meeting="false" start="2016-10-24" duration="22" complete="0" expand="true">
+                <notes><![CDATA[Gantt à jour avec un suivi des coûts]]></notes>
+                <depend id="56" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="56" name="Rendre livrable 3 (Gestion 2)" color="#8cb6ce" meeting="false" start="2016-11-25" duration="1" complete="0" expand="true">
+                <notes><![CDATA[Gantt à jour avec un suivi des coûts]]></notes>
+            </task>
+            <task id="57" name="Création plan de travail" color="#8cb6ce" meeting="false" start="2016-11-04" duration="24" complete="0" expand="true">
+                <notes><![CDATA[Cahier des charges (avec recueil des besoins)
+Analyse théorique du problème posé
+Etude des solutions techniques]]></notes>
+                <depend id="58" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="58" name="Remise plan de travail" color="#8cb6ce" meeting="false" start="2016-12-09" duration="1" complete="0" expand="true">
+                <notes><![CDATA[Cahier des charges (avec recueil des besoins)
+Analyse théorique du problème posé
+Etude des solutions techniques
+Destinataire: M.OCCELLO, M.GENTHIAL, M.ROTTELEUR]]></notes>
+                <depend id="59" type="2" difference="0" hardness="Rubber"/>
+            </task>
+            <task id="59" name="Préparer soutenance projet" color="#8cb6ce" meeting="false" start="2016-12-12" duration="3" complete="0" expand="true">
+                <notes><![CDATA[Introduction des objectifs, du reccueil des besoins, de l'analyse et des choix techniques.]]></notes>
+                <depend id="60" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="60" name="Soutenance projet" color="#8cb6ce" meeting="false" start="2016-12-15" duration="1" complete="0" priority="2" expand="true">
+                <notes><![CDATA[Introduction des objectifs, du reccueil des besoins, de l'analyse et des choix techniques.]]></notes>
+            </task>
         </task>
-        <task id="38" name="Création besoins fonctionnels" color="#8cb6ce" meeting="false" start="2016-10-17" duration="12" complete="0" expand="true">
-            <depend id="35" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="35" name="Delivrable besoins donctionnnels" color="#8cb6ce" meeting="false" start="2016-11-03" duration="1" complete="0" expand="true">
-            <notes><![CDATA[Charges d'Utilisation, Charge du système, Cas d'utilisation ]]></notes>
-        </task>
-        <task id="30" name="Préparer délivrable gestion" color="#8cb6ce" meeting="false" start="2016-12-01" duration="6" complete="0" expand="true">
-            <depend id="4" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="4" name="Rendre délivrable gestion 2" color="#8cb6ce" meeting="false" start="2016-12-09" duration="1" complete="0" expand="true">
-            <notes><![CDATA[Selon Metge]]></notes>
-        </task>
-        <task id="18" name="Création plan de travail" color="#8cb6ce" meeting="false" start="2016-11-04" duration="24" complete="0" expand="true">
-            <depend id="16" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="16" name="Remise plan de travail" color="#8cb6ce" meeting="false" start="2016-12-09" duration="1" complete="0" expand="true">
-            <notes><![CDATA[Cahier des charges comprenant recueil des besoins, une analyse théorique du problème posé, avec des méthodes adaptées, une étude des solutions techniques
-+Cahier des charges module M3301]]></notes>
-        </task>
-        <task id="13" name="Préparer soutenance projet" color="#8cb6ce" meeting="false" start="2016-12-01" duration="10" complete="0" expand="true">
-            <depend id="10" type="2" difference="0" hardness="Strong"/>
-        </task>
-        <task id="10" name="Soutenance projet" color="#8cb6ce" meeting="false" start="2016-12-15" duration="1" complete="0" priority="2" expand="true"/>
-        <task id="20" name="Semaine dédiée projet s4" color="#8cb6ce" meeting="false" start="2017-01-09" duration="1" complete="0" expand="true"/>
     </tasks>
     <resources>
         <custom-property-definition id="tpc1" name="Rôle conception" type="text" default-value="Indéfini"/>
@@ -198,45 +223,44 @@
         </resource>
     </resources>
     <allocations>
-        <allocation task-id="0" resource-id="0" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="2" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
-        <allocation task-id="10" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="25" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
-        <allocation task-id="30" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
-        <allocation task-id="4" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
-        <allocation task-id="18" resource-id="0" function="Default:0" responsible="true" load="90.0"/>
-        <allocation task-id="16" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="13" resource-id="0" function="Default:0" responsible="true" load="60.0"/>
-        <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="2" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="10" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="25" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="4" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="18" resource-id="1" function="Default:0" responsible="false" load="90.0"/>
-        <allocation task-id="16" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="13" resource-id="1" function="Default:0" responsible="false" load="60.0"/>
-        <allocation task-id="38" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="0" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="2" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="10" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="25" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="30" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="18" resource-id="2" function="Default:0" responsible="false" load="90.0"/>
-        <allocation task-id="16" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="13" resource-id="2" function="Default:0" responsible="false" load="60.0"/>
-        <allocation task-id="38" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="0" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="2" resource-id="3" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="10" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="25" resource-id="3" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="30" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="3" function="Default:0" responsible="false" load="10.0"/>
-        <allocation task-id="18" resource-id="3" function="Default:0" responsible="false" load="90.0"/>
-        <allocation task-id="16" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="13" resource-id="3" function="Default:0" responsible="false" load="60.0"/>
-        <allocation task-id="38" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="0" resource-id="4" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+        <allocation task-id="50" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="51" resource-id="0" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="52" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="53" resource-id="0" function="Default:1" responsible="true" load="50.0"/>
+        <allocation task-id="55" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="56" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="57" resource-id="0" function="Default:0" responsible="true" load="90.0"/>
+        <allocation task-id="58" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="59" resource-id="0" function="Default:0" responsible="true" load="60.0"/>
+        <allocation task-id="60" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="50" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="51" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="52" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="53" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="55" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="56" resource-id="1" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="57" resource-id="1" function="Default:0" responsible="false" load="90.0"/>
+        <allocation task-id="58" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="59" resource-id="1" function="Default:0" responsible="false" load="60.0"/>
+        <allocation task-id="60" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="51" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="52" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="53" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="55" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="56" resource-id="2" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="57" resource-id="2" function="Default:0" responsible="false" load="90.0"/>
+        <allocation task-id="58" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="59" resource-id="2" function="Default:0" responsible="false" load="60.0"/>
+        <allocation task-id="60" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="51" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="52" resource-id="3" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="53" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="56" resource-id="3" function="Default:0" responsible="false" load="10.0"/>
+        <allocation task-id="57" resource-id="3" function="Default:0" responsible="false" load="90.0"/>
+        <allocation task-id="58" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="59" resource-id="3" function="Default:0" responsible="false" load="60.0"/>
+        <allocation task-id="60" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="51" resource-id="4" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
