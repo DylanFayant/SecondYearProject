@@ -9,7 +9,7 @@ Bienvenue dans le repository de notre projet de seconde année "Client SNMP Andr
     - Livrables (Contient les archives des différents livrables)  
     - Modalités projet (Tous les documents "administratifs" concernant le projet)  
     - Planning (Contient le gantt)  
-- - -  
+- - - - -
 
 ## TODO list
 
