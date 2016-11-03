@@ -17,3 +17,4 @@ Bienvenue dans le repository de notre projet de seconde année "Client SNMP Andr
 
 - Prendre un rdv avec monsieur occello / monsieur jean pour se renseigner techniquement et conceptuellement  
 - Ajouter une section Q&A?  
+- Rendre livrable cahier des charges+cas d'utilisations (!Urgent)
