@@ -1,4 +1,10 @@
 # Voici les questions posées qui ont obtenu une réponse
+ - Qu'est-ce qu'une MIB
+    - Une MIB est une structure qui classe toutes les données accessible par SNMP, 
+      son arborescence et son contenu sont prédéfinies et impossible à modifier. On place 
+      habituellement dans un fichier texte un fichier qui listera dans la syntaxe de la MIB
+      qui listes les fonctions que notre application va devoir prendre en charge. Une MIB ne 
+      contient aucune donnée.
 
 # Posez vos questions ici
 
