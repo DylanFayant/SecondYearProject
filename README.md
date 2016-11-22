@@ -16,5 +16,7 @@ Bienvenue dans le repository de notre projet de seconde année "Client SNMP Andr
 ## TODO list
 
 - Prendre un rdv avec monsieur occello / monsieur jean pour se renseigner techniquement et conceptuellement  
-- Ajouter une section Q&A?  
-- Rendre livrable cahier des charges+cas d'utilisations (!Urgent)
+- (24/11) Finir livrable gestion 2 
+- (09/12) Finir cahier des charges fonctionnel détaillé 
+- (24/11) Il est préférable de noter toutes les questions que vous vous posez dans le fichier QuestionsReponses.txt pour la réunion
+- (24/11) Prendre un temps pour se réunir en équipe pour valider les documents à rendre et s'organiser pour le prochain jalon, ainsi que faire un debrief technique
