@@ -6,10 +6,18 @@
       qui listes les fonctions que notre application va devoir prendre en charge. Une MIB ne 
       contient aucune donnée.
 
+    - Quelle est la ou les version(s) du protocole SNMP que le superviseur peut prendre en charge?
+        - Nous choississons (pas V1) (2.0.c)
+    - Quel est le modèle de sécurité adopté? (USM, VACM ou autre)
+        - Pas de sécurité (explications )
+
+Ou se trouve les données à superviser: 
+	Données à fournir
+minimat ICMP(ping)+SNMP MIB Standard (DISK,LOAD,MEMORY,sysDescr,sysName)
+
 # Posez vos questions ici
 
  - Concernant le SNMP (Réunion jeudi 24/11)
-    - Dans quel cas présisément doit-on générer une TRAP SNMP?
-    - Quelles valeurs doivent être instanciées et actualisées pour le superviseur?
-    - Quelle est la ou les version(s) du protocole SNMP que le superviseur peut prendre en charge?
-    - Quel est le modèle de sécurité adopté? (USM, VACM ou autre)
+    - Dans quel cas présisément doit-on générer une TRAP SNMP? (Florian)
+    - Quelles valeurs doivent être instanciées et actualisées pour le superviseur? (Florian)
+    - Où est la MIB android, utiliser la mib standard
