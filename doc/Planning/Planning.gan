@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-11-21" view-index="0" gantt-divider-location="474" resource-divider-location="161" version="2.8.1" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2017-01-02" view-index="0" gantt-divider-location="474" resource-divider-location="161" version="2.8.1" locale="fr">
     <description/>
-    <view zooming-state="default:0" id="gantt-chart">
+    <view zooming-state="default:6" id="gantt-chart">
         <field id="tpd3" name="Nom" width="277" order="0"/>
         <field id="tpd4" name="Date de début" width="98" order="1"/>
         <field id="tpd5" name="Date de fin" width="95" order="2"/>
@@ -96,7 +96,7 @@
         <date year="2014" month="1" date="1" type="HOLIDAY"><![CDATA[New Years Day]]></date>
         <date year="2014" month="4" date="21" type="HOLIDAY"><![CDATA[Easter Monday]]></date>
         <date year="2014" month="5" date="1" type="HOLIDAY"><![CDATA[Labour Day]]></date>
-        <date year="2015" month="5" date="1" type="HOLIDAY"><![CDATA[V-E Day
+        <date year="2015" month="5" date="14" type="HOLIDAY"><![CDATA[V-E Day
         Mothers Day
         Ascension Day
         Whitmonday
@@ -108,9 +108,9 @@
         Christmas Day
         New Years Day
         Easter Monday
-        Labour Day]]></date>
-        <date year="2015" month="5" date="8" type="HOLIDAY"><![CDATA[V-E Day]]></date>
-        <date year="2015" month="5" date="14" type="HOLIDAY"><![CDATA[Ascension Day]]></date>
+        Labour Day
+        V-E Day
+        Ascension Day]]></date>
         <date year="2015" month="5" date="24" type="NEUTRAL"><![CDATA[Mothers Day]]></date>
         <date year="2015" month="5" date="25" type="HOLIDAY"><![CDATA[Whitmonday]]></date>
         <date year="2015" month="6" date="21" type="NEUTRAL"><![CDATA[Fathers Day]]></date>
@@ -147,7 +147,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="6" name="Projet S3" color="#8cb6ce" meeting="false" start="2016-10-13" duration="43" complete="0" expand="true">
+        <task id="6" name="Projet S3" color="#8cb6ce" meeting="false" start="2016-10-13" duration="43" complete="0" expand="false">
             <task id="52" name="Préparation livrable 1 (Gestion 1)" color="#8cb6ce" meeting="false" start="2016-10-13" duration="6" complete="0" expand="true">
                 <notes><![CDATA[Gantt à jour, suivi des coûts, descriptif de l'approche documentaire. ]]></notes>
                 <depend id="50" type="2" difference="0" hardness="Strong"/>
@@ -230,6 +230,25 @@ Destinataire: M.OCCELLO, M.GENTHIAL, M.ROTTELEUR]]></notes>
             <task id="60" name="Soutenance projet" color="#8cb6ce" meeting="true" start="2016-12-15" duration="0" complete="0" priority="2" expand="true">
                 <notes><![CDATA[Introduction des objectifs, du reccueil des besoins, de l'analyse et des choix techniques.]]></notes>
             </task>
+        </task>
+        <task id="175" name="Projet S4" color="#8cb6ce" meeting="false" start="2017-01-02" duration="70" complete="0" expand="true">
+            <task id="178" name="Semaine banalisée pour le développement" color="#8cb6ce" meeting="false" start="2017-01-09" duration="5" complete="0" expand="false">
+                <task id="189" name="les différents trucs" color="#8cb6ce" meeting="false" start="2017-01-09" duration="5" complete="0" expand="true"/>
+            </task>
+            <task id="180" name="Semaine banalisée pour la fin de projet" color="#8cb6ce" meeting="false" start="2017-04-03" duration="5" complete="0" expand="false">
+                <task id="195" name="les différents trucs" color="#8cb6ce" meeting="false" start="2017-04-03" duration="5" complete="0" expand="true"/>
+            </task>
+            <task id="183" name="Remise du rapport et de la démonstration" color="#8cb6ce" meeting="true" start="2017-04-06" duration="0" complete="0" expand="true">
+                <notes><![CDATA[Cette remise concerne : 
+
+- un rapport détaillant la réalisation de l'application (état final, difficultés rencontrées), accompagné d'un document
+utilisateur et d'un document développeur,
+
+- une démonstration, sous forme d'une courte vidéo commentée (5 minutes maximum), présentant : l'équipe projet, le client, le besoin initial, la solution mise en œuvre, l'architecture globale, la démonstration du fonctionnement sur les fonctions les plus pertinentes.]]></notes>
+            </task>
+            <task id="185" name="Soutenance et démo" color="#8cb6ce" meeting="true" start="2017-04-07" duration="0" complete="0" expand="true"/>
+            <task id="200" name="Réunion de lancement avec l'entreprise" meeting="false" start="2017-01-02" duration="1" complete="0" expand="true"/>
+            <task id="201" name="Réunion de lancement avec monsieur Genthial" meeting="false" start="2017-01-02" duration="1" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources>
