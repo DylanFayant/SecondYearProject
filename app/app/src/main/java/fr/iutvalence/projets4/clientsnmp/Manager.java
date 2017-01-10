@@ -1,16 +1,23 @@
 package fr.iutvalence.projets4.clientsnmp;
 
-import org.snmp4j.CommunityTarget;
 import org.snmp4j.PDU;
 import org.snmp4j.ScopedPDU;
 import org.snmp4j.Snmp;
 import org.snmp4j.Target;
 import org.snmp4j.TransportMapping;
+import org.snmp4j.UserTarget;
 import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.mp.MPv3;
 import org.snmp4j.mp.SnmpConstants;
+import org.snmp4j.security.AuthMD5;
 import org.snmp4j.security.SecurityLevel;
+import org.snmp4j.security.SecurityModels;
+import org.snmp4j.security.SecurityProtocols;
+import org.snmp4j.security.USM;
+import org.snmp4j.security.UsmUser;
 import org.snmp4j.smi.Address;
 import org.snmp4j.smi.GenericAddress;
+import org.snmp4j.smi.Integer32;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.VariableBinding;
@@ -20,7 +27,7 @@ import java.io.IOException;
 
 /**
  * Created by simon on 09/01/2017.
- * Plutôt V3
+ *  V3
  */
 
 public class Manager{
@@ -48,8 +55,8 @@ public class Manager{
         USM usm = new USM(SecurityProtocols.getInstance(), new OctetString(MPv3.createLocalEngineID()), 0);
         SecurityModels.getInstance().addSecurityModel(usm);
         snmp = new Snmp(transport);
-        snmp.getUSM().addUser(new OctetString(ver3Username),
-                new UsmUser(new OctetString(ver3Username), AuthMD5.ID, new OctetString(ver3AuthPasscode), null, null));
+        snmp.getUSM().addUser(new OctetString(ver3UserName),
+                new UsmUser(new OctetString(ver3UserName), AuthMD5.ID, new OctetString(ver3AuthPasscode), null, null));
 
 
         transport.listen();
@@ -103,7 +110,7 @@ public class Manager{
         ResponseEvent event = null;
 
         try {
-                event = snmp.send(pdu, getSNMPv3Target(), null);
+                event = snmp.send(pdu, getTarget(), null);
 
         } catch (IOException ioe) {
             System.out.println("Error SNMP SET");
