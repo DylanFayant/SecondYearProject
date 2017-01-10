@@ -37,7 +37,7 @@ public class Manager{
 
     private String address;
     private Snmp snmp;
-    private String ver3UserName = "michou";
+    private String ver3UserName = "apc1";
     private String ver3AuthPasscode = "admin user phrase";
 
     public Manager(String address){
@@ -131,7 +131,7 @@ public class Manager{
         target.setRetries(2);
         target.setTimeout(1500);
         target.setSecurityLevel(SecurityLevel.AUTH_NOPRIV);
-        target.setSecurityName(new OctetString("MICHOU"));
+        target.setSecurityName(new OctetString(ver3UserName));
         target.setVersion((SnmpConstants.version3));
         return target;
 
