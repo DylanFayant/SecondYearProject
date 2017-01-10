@@ -22,6 +22,6 @@ public class SysDescr implements MIBComposite, MIBElement<String> {
 
     @Override
     public String getValue() {
-        return Build.MODEL;
+        return Build.MANUFACTURER + " " + Build.MODEL;
     }
 }

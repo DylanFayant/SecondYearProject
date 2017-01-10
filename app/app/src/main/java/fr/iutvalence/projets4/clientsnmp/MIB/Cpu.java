@@ -9,7 +9,7 @@ import java.io.RandomAccessFile;
  * Created by Thundermist on 09/01/17.
  */
 
-public class Cpu implements MIBComposite, MIBElement<Float> {
+public class Cpu implements MIBComposite, MIBElement<Double> {
 
     @Override
     public MIBComposite getComposite(OID oid) {
@@ -22,36 +22,48 @@ public class Cpu implements MIBComposite, MIBElement<Float> {
     }
 
     @Override
-    public Float getValue() {
+    public Double getValue() {
         try
         {
             RandomAccessFile reader = new RandomAccessFile("/proc/stat","r");
             String load = reader.readLine();
-
-            String[] toks = load.split(" +");
-
-            long idle1 = Long.parseLong(toks[4]);
-            long cpu1 = Long.parseLong(toks[2])+Long.parseLong(toks[3])+Long.parseLong(toks[5])+Long.parseLong(toks[6])+Long.parseLong(toks[7])+Long.parseLong(toks[8]);
-            try
-            {
-                Thread.sleep(300);
-            }
-            catch(Exception e){}
-            reader.seek(0);
-            load  = reader.readLine();
             reader.close();
 
-            toks = load.split(" +");
+            load = load.replace("cpu  ", "");
 
-            long idle2 = Long.parseLong(toks[4]);
-            long cpu2 = Long.parseLong(toks[2])+Long.parseLong(toks[3])+Long.parseLong(toks[5])+Long.parseLong(toks[6])+Long.parseLong(toks[7])+Long.parseLong(toks[8]);
+            String[] infos1 = load.split(" ");
 
-            return (float) ((cpu2 - idle2) / ((cpu2 + idle2) - (cpu1 + idle1)));
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch(Exception e){}
+
+            reader = new RandomAccessFile("/proc/stat","r");
+            load = reader.readLine();
+            reader.close();
+
+            load = load.replace("cpu  ", "");
+
+            String[] infos2 = load.split(" ");
+
+            long user = Long.parseLong(infos2[0]) - Long.parseLong(infos1[0]);
+            long nice = Long.parseLong(infos2[1]) - Long.parseLong(infos1[1]);
+            long sys = Long.parseLong(infos2[2]) - Long.parseLong(infos1[2]);
+            long idle = Long.parseLong(infos2[3]) - Long.parseLong(infos1[3]);
+
+            long total = user + nice + sys + idle;
+
+            long totalMoinsIdle = total - idle;
+
+            double pourcentUtilisé = (double)totalMoinsIdle/(double) total;
+
+            return  pourcentUtilisé;
         }
         catch (IOException ex )
         {
             ex.printStackTrace();
         }
-        return 0.0f;
+        return 0.0;
     }
 }
