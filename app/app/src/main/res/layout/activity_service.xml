@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:id="@+id/btnShowNotification"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:text="Show Notification"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/btnClearNotification"
+        android:layout_alignEnd="@+id/btnClearNotification"
+        android:layout_weight="0.15"
+        android:onClick="StartSvc" />
+
+    <Button
+        android:id="@+id/btnClearNotification"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:text="Clear Notification"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="62dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginBottom="139dp"
+        android:onClick="StopSvc" />
+
+</LinearLayout>
