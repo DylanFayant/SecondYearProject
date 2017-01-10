@@ -11,11 +11,13 @@ import org.snmp4j.smi.OID;
 
 import java.io.IOException;
 
+import fr.iutvalence.projets4.clientsnmp.AgentTest.SNMPAgent;
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 
 public class MainActivity extends AppCompatActivity {
 
     private Manager manager = null;
+    private SNMPAgent agent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void start(View view) {
-        this.manager = new Manager("udp:127.0.0.1/161");
+        this.manager = new Manager("udp:127.0.0.1/1111");
         String sysDescr = null;
         try {
             sysDescr = manager.getAsString(new OID(".1.3.6.1.2.1.1.1.0"));
@@ -39,5 +41,16 @@ public class MainActivity extends AppCompatActivity {
         }
         System.out.println(sysDescr);
     }
+    protected void startAgent(View view){
+        try {
+            agent = new SNMPAgent("udp:127.0.0.1/1111");
+            agent.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    protected void stopAgent(View view){
+
+    }
 }
