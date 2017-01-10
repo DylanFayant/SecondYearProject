@@ -8,6 +8,9 @@ import org.snmp4j.smi.OID;
 
 public class MIBDictionary {
 
+    public final static OID SYSDESCR_OID = new OID("1.3.6.1.2.1.1.1");
+    public final static OID MEMORYUSAGE_OID = new OID("1.3.6.1.2.1.1.2");
+
     MIBComposite mibTree;
 
     public MIBDictionary(){
@@ -16,7 +19,8 @@ public class MIBDictionary {
     }
 
     public void setLeafs() {
-        this.mibTree.setComposite(new OID("1.3.6.1.2.1.1.1"), new SysDescr());
+        this.mibTree.setComposite(SYSDESCR_OID, new SysDescr());
+        this.mibTree.setComposite(MEMORYUSAGE_OID, new MemoryUsage());
     }
 
     public MIBElement getMIBElement(OID oid)
