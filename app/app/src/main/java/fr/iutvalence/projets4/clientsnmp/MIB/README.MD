@@ -1,14 +1,11 @@
-MIB :
-
-Système (1)
-    SysDescr (1) - DONE -
-    SysUpTime (2) - NOT -
-    SysAndroidVersion (3) - NOT -
-
-Hardware (2)
-    HwCpuUsage (1) - DONE -
-    HwDiskUsage (2) - NOT WORKING -
-    HwMemoryUsage (3) - DONE -
-    HwSensorActivity (4) - NOT WORKING -
-
-Services (3)
+MIB (1.3.6.1.2.1)
+Système (.1)
+    SysDescr (.1)           - FULLY DONE -
+    SysAndroidVersion (.2)  - FULLY DONE -
+    SysUpTime (.3)          - FULLY DONE -
+Hardware (.2)
+    HwCpuUsage (.1)         - ALMOST DONE -
+    HwDiskUsage (.2)        - NOT WORKING -
+    HwMemoryUsage (.3)      - FULLY DONE -
+    HwSensorActivity (.4)   - NOT WORKING -
+Services (.3)

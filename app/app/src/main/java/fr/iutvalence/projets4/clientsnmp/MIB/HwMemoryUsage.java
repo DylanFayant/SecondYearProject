@@ -38,7 +38,7 @@ public class HwMemoryUsage implements MIBComposite, MIBElement<Double> {
 
                     if (name.equalsIgnoreCase("MemTotal")) {
                         result.total = Long.parseLong(size);
-                    } else if (name.equalsIgnoreCase("MemFree") || name.equalsIgnoreCase("Buffers") ||
+                    } else if (name.equalsIgnoreCase("MemFree") ||
                             name.equalsIgnoreCase("Cached")) {
                         result.free += Long.parseLong(size);
                     }
@@ -46,8 +46,8 @@ public class HwMemoryUsage implements MIBComposite, MIBElement<Double> {
             }
             reader.close();
 
-            result.total *= 1024;
-            result.free *= 1024;
+            result.total /= 1024;
+            result.free /= 1024;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,6 +66,6 @@ public class HwMemoryUsage implements MIBComposite, MIBElement<Double> {
 
         long usedMemorySize = memorySize.total - memorySize.free;
 
-        return ((double) usedMemorySize /(double) memorySize.total);
+        return (double) usedMemorySize / (double) memorySize.total;
     }
 }

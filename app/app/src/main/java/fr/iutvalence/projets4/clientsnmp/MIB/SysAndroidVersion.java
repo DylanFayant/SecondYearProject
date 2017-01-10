@@ -22,6 +22,6 @@ public class SysAndroidVersion implements MIBComposite, MIBElement<String> {
 
     @Override
     public String getValue() {
-        return Build.MANUFACTURER + " " + Build.MODEL;
+        return Build.VERSION.RELEASE;
     }
 }

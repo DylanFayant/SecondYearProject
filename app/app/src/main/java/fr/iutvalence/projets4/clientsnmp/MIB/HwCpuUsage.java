@@ -25,40 +25,32 @@ public class HwCpuUsage implements MIBComposite, MIBElement<Double> {
     public Double getValue() {
         try
         {
-            RandomAccessFile reader = new RandomAccessFile("/proc/stat","r");
+            RandomAccessFile reader = new RandomAccessFile("/proc/stat", "r");
             String load = reader.readLine();
-            reader.close();
 
-            load = load.replace("cpu  ", "");
+            String[] toks = load.split(" ");
 
-            String[] infos1 = load.split(" ");
+            long idle1 = Long.parseLong(toks[5]);
+            long cpu1 = Long.parseLong(toks[2]) + Long.parseLong(toks[3]) + Long.parseLong(toks[4])
+                    + Long.parseLong(toks[6]) + Long.parseLong(toks[7]) + Long.parseLong(toks[8]);
 
-            try
-            {
-                Thread.sleep(1000);
-            }
-            catch(Exception e){}
+            try {
+                Thread.sleep(360);
+            } catch (Exception e) {}
 
-            reader = new RandomAccessFile("/proc/stat","r");
+            reader.seek(0);
             load = reader.readLine();
             reader.close();
 
-            load = load.replace("cpu  ", "");
+            toks = load.split(" ");
 
-            String[] infos2 = load.split(" ");
+            long idle2 = Long.parseLong(toks[5]);
+            long cpu2 = Long.parseLong(toks[2]) + Long.parseLong(toks[3]) + Long.parseLong(toks[4])
+                    + Long.parseLong(toks[6]) + Long.parseLong(toks[7]) + Long.parseLong(toks[8]);
 
-            long user = Long.parseLong(infos2[0]) - Long.parseLong(infos1[0]);
-            long nice = Long.parseLong(infos2[1]) - Long.parseLong(infos1[1]);
-            long sys = Long.parseLong(infos2[2]) - Long.parseLong(infos1[2]);
-            long idle = Long.parseLong(infos2[3]) - Long.parseLong(infos1[3]);
+            double value = (double)(cpu2 - cpu1) / ((cpu2 + idle2) - (cpu1 + idle1));
 
-            long total = user + nice + sys + idle;
-
-            long totalMoinsIdle = total - idle;
-
-            double pourcentUtilisé = (double)totalMoinsIdle/(double) total;
-
-            return  pourcentUtilisé;
+            return (double)Math.round(value*100.0)/100.0;
         }
         catch (IOException ex )
         {
