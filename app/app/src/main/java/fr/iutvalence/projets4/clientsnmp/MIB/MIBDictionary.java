@@ -23,10 +23,10 @@ public class MIBDictionary {
 
     public void setLeafs() {
         this.mibTree.setComposite(SYSDESCR_OID, new SysDescr());
-        this.mibTree.setComposite(MEMORYUSAGE_OID, new MemoryUsage());
-        this.mibTree.setComposite(DISKUSAGE_OID, new DiskUsage());
-        this.mibTree.setComposite(CPUUSAGE_OID, new Cpu());
-        this.mibTree.setComposite(SENSOR_ACTIVITY_OID, new SensorActivity());
+        this.mibTree.setComposite(MEMORYUSAGE_OID, new HwMemoryUsage());
+        this.mibTree.setComposite(DISKUSAGE_OID, new HwDiskUsage());
+        this.mibTree.setComposite(CPUUSAGE_OID, new HwCpuUsage());
+        this.mibTree.setComposite(SENSOR_ACTIVITY_OID, new HwSensorActivity());
     }
 
     public MIBElement getMIBElement(OID oid)

@@ -15,7 +15,7 @@ import org.snmp4j.smi.OID;
  * Created by Thundermist on 09/01/17.
  */
 
-public class SensorActivity extends Activity implements SensorEventListener, MIBComposite, MIBElement<Float> {
+public class HwSensorActivity extends Activity implements SensorEventListener, MIBComposite, MIBElement<Float> {
     private SensorManager mSensor;
     private Sensor mTemperature;
     private float temperature;

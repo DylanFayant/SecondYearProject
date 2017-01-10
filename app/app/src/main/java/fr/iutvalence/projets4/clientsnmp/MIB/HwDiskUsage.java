@@ -10,7 +10,7 @@ import org.snmp4j.smi.OID;
  * Created by ethis on 09/01/17.
  */
 
-public class DiskUsage implements MIBComposite, MIBElement<Double> {
+public class HwDiskUsage implements MIBComposite, MIBElement<Double> {
 
     private static final long KILOBYTE = 1024;
 

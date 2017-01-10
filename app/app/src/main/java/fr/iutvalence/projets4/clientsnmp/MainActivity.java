@@ -2,6 +2,7 @@ package fr.iutvalence.projets4.clientsnmp;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,8 +28,25 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        MIBDictionary mib = new MIBDictionary();
-        Log.i("Valeur de MIB", mib.getMIBElement(new OID("1.3.6.1.2.1.1.1")).getValue().toString());
+        final MIBDictionary mib = new MIBDictionary();
+        Log.i("SysDescr", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.1")).getValue().toString());
+
+        new CountDownTimer(1000*360, 1000)
+        {
+
+            @Override
+            public void onTick(long l) {
+                Log.i("MemoryUsages", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.2")).getValue().toString());
+                Log.i("CPU", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.4")).getValue().toString());
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+
+
     }
 
     protected void start(View view) {

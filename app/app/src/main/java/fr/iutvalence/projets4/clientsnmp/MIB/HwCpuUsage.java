@@ -9,7 +9,7 @@ import java.io.RandomAccessFile;
  * Created by Thundermist on 09/01/17.
  */
 
-public class Cpu implements MIBComposite, MIBElement<Double> {
+public class HwCpuUsage implements MIBComposite, MIBElement<Double> {
 
     @Override
     public MIBComposite getComposite(OID oid) {

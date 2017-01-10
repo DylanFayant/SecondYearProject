@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Created by ethis on 09/01/17.
  */
 
-public class MemoryUsage implements MIBComposite, MIBElement<Double> {
+public class HwMemoryUsage implements MIBComposite, MIBElement<Double> {
 
     @Override
     public MIBComposite getComposite(OID oid) {
