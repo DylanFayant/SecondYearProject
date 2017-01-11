@@ -13,14 +13,13 @@ public class ServiceActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
-
-        this.intent =new Intent(ServiceActivity.this, AgentService.class);
-        //intent.setData(Uri.parse("Donnée"));
+        this.intent =new Intent(this, AgentService.class);
+        this.intent.setData(Uri.parse("Donnée"));
     }
 
     public void StartSvc(View v) {
-        Log.d("Test","Appuyé sur le bouton start");
-        this.startService(intent);
+        Log.d("Test","Appuyé sur le bouton start, debug");
+        this.startService(this.intent);
     }
 
     public void StopSvc(View v) {
