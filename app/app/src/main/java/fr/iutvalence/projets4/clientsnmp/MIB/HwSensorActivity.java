@@ -6,58 +6,21 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.StrictMode;
+
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.snmp4j.smi.OID;
+
+import java.io.FileInputStream;
 
 
 /**
  * Created by Thundermist on 09/01/17.
  */
 
-public class HwSensorActivity extends Activity implements SensorEventListener, MIBComposite, MIBElement<Float> {
-    private SensorManager mSensor;
-    private Sensor mTemperature;
-    private float temperature;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+public class HwSensorActivity implements MIBComposite, MIBElement<Long> {
 
-    @Override
-    public final void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Get an instance of the sensor service, and use that to get an instance of
-        // a temperature sensor.
-        mSensor = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mTemperature = mSensor.getDefaultSensor(Sensor.TYPE_TEMPERATURE);
-    }
-
-    @Override
-    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do something here if sensor accuracy changes.
-    }
-
-    @Override
-    public final void onSensorChanged(SensorEvent event) {
-        temperature = event.values[0];
-        // Do something with this sensor data.
-    }
-
-    @Override
-    protected void onResume() {
-        // Register a listener for the sensor.
-        super.onResume();
-        mSensor.registerListener(this, mTemperature, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    @Override
-    protected void onPause() {
-        // Be sure to unregister the sensor when the activity pauses.
-        super.onPause();
-        mSensor.unregisterListener(this);
-    }
 
     @Override
     public MIBComposite getComposite(OID oid) {
@@ -70,7 +33,51 @@ public class HwSensorActivity extends Activity implements SensorEventListener, M
     }
 
     @Override
-    public Float getValue() {
-        return temperature;
+    public Long getValue() {
+        String file = readFile("/sys/devices/virtual/thermal/thermal_zone0/temp", '\n');
+        if(file != null)
+        {
+            return Long.parseLong(file);
+        }
+        return Long.valueOf(0);
+    }
+
+    private byte[] mBuffer = new byte[4096];
+    private String readFile(String file, char endChar) {
+        StrictMode.ThreadPolicy savedPolicy = StrictMode.allowThreadDiskReads();
+        FileInputStream is = null;
+        try
+        {
+            is = new FileInputStream(file);
+            int len = is.read(mBuffer);
+            is.close();
+
+            if(len>0)
+            {
+                int i;
+                for(i=0;i<len;i++)
+                {
+                    if(mBuffer[i] == endChar)
+                    {
+                        break;
+                    }
+                }
+                return new String(mBuffer,0,i);
+            }
+        }
+        catch(java.io.FileNotFoundException e){}
+        catch(java.io.IOException e){}
+        finally
+        {
+            if(is != null)
+            {
+                try {
+                    is.close();
+                }
+                catch (java.io.IOException e){}
+            }
+            StrictMode.setThreadPolicy(savedPolicy);
+        }
+        return null;
     }
 }
