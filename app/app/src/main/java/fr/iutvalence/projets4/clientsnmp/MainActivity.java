@@ -1,5 +1,6 @@
 package fr.iutvalence.projets4.clientsnmp;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -20,24 +21,28 @@ public class MainActivity extends AppCompatActivity {
     private Manager manager = null;
     private SNMPAgent agent = null;
 
+    private static AppCompatActivity instance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MainActivity.instance = this;
+
         if (Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
         final MIBDictionary mib = new MIBDictionary();
-        Log.i("SysDescr", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.1")).getValue().toString());
+        Log.i("SysDescr", mib.getMIBElement(MIBDictionary.SYSDESCR_OID).getValue().toString());
 
-        new CountDownTimer(1000*360, 1000)
+        new CountDownTimer(1000*360, 333)
         {
 
             @Override
             public void onTick(long l) {
-                Log.i("MemoryUsages", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.2")).getValue().toString());
-                Log.i("CPU", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.4")).getValue().toString());
+                //Log.i("MemoryUsages", mib.getMIBElement(new OID(".1.3.6.1.2.1.1.2")).getValue().toString());
+                Log.i("Disk", mib.getMIBElement(MIBDictionary.HWDISKUSAGE).getValue().toString());
             }
 
             @Override
@@ -70,5 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
     protected void stopAgent(View view){
 
+    }
+
+    public static Context getContext() {
+        return MainActivity.instance.getApplicationContext();
     }
 }

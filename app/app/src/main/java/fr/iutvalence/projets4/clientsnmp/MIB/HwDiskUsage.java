@@ -1,6 +1,5 @@
 package fr.iutvalence.projets4.clientsnmp.MIB;
 
-import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 
@@ -30,31 +29,30 @@ public class HwDiskUsage implements MIBComposite, MIBElement<Double> {
      */
     @Override
     public Double getValue() {
-        StatFs internalStatFs = new StatFs( Environment.getRootDirectory().getAbsolutePath() );
-        long internalTotal;
-        long internalFree;
-
-        StatFs externalStatFs = new StatFs( Environment.getExternalStorageDirectory().getAbsolutePath() );
-        long externalTotal;
-        long externalFree;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            internalTotal = ( internalStatFs.getBlockCountLong() * internalStatFs.getBlockSizeLong() );
-            internalFree = ( internalStatFs.getAvailableBlocksLong() * internalStatFs.getBlockSizeLong() );
-            externalTotal = ( externalStatFs.getBlockCountLong() * externalStatFs.getBlockSizeLong() );
-            externalFree = ( externalStatFs.getAvailableBlocksLong() * externalStatFs.getBlockSizeLong() );
-        }
-        else {
-            internalTotal = ( (long) internalStatFs.getBlockCount() * (long) internalStatFs.getBlockSize() );
-            internalFree = ( (long) internalStatFs.getAvailableBlocks() * (long) internalStatFs.getBlockSize() );
-            externalTotal = ( (long) externalStatFs.getBlockCount() * (long) externalStatFs.getBlockSize() );
-            externalFree = ( (long) externalStatFs.getAvailableBlocks() * (long) externalStatFs.getBlockSize() );
-        }
-
-        long total = internalTotal + externalTotal;
-        long free = internalFree + externalFree;
-        long used = total - free;
-
-        return (double)used;
+        return (double)getInternalUsedSpace()/(double)getInternalStorageSpace();
     }
+
+    public long getInternalStorageSpace()
+    {
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        long total = ((long)statFs.getBlockCount() * (long)statFs.getBlockSize());
+        return total;
+    }
+
+    public long getInternalFreeSpace()
+    {
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        long free  = ((long)statFs.getAvailableBlocks() * (long)statFs.getBlockSize());
+        return free;
+    }
+
+    public long getInternalUsedSpace()
+    {
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        long total = ((long)statFs.getBlockCount() * (long)statFs.getBlockSize());
+        long free  = ((long)statFs.getAvailableBlocks() * (long)statFs.getBlockSize());
+        long busy  = total - free;
+        return busy;
+    }
+
 }
