@@ -7,5 +7,6 @@ Hardware (.2)
     HwCpuUsage (.1)         - DONE APPROXIMATELY -
     HwDiskUsage (.2)        - DONE ONLY INTERNAL MEMORY -
     HwMemoryUsage (.3)      - FULLY DONE -
-    HwSensorActivity (.4)   - NOT WORKING -
+    HwSensorActivity (.4)   - FULLY DONE -
 Services (.3)
+    SrvcTMMOpen (.1)        - NOT DONE -
