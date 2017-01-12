@@ -9,6 +9,5 @@ Hardware (.2)
     HwMemoryUsage (.3)      - FULLY DONE -
     HwSensorActivity (.4)   - FULLY DONE -
 Services (.3)
-    SrvcMustBeOpen (.1)     - FULLY DONE -
-    SrvcInForeground (.2)   - NOT DONE -
-    SrvcHasCrash            - NOT DONE -
+    SrvcMustBeOpen (.1)     - FULLY DONE (not working in android nougat) -
+    SrvcForgroundTmm (.2)   - NOT DONE -

@@ -1,8 +1,10 @@
 package fr.iutvalence.projets4.clientsnmp.MIB;
 
 import android.app.ActivityManager;
+import android.util.Log;
 
 import com.jaredrummler.android.processes.AndroidProcesses;
+import com.jaredrummler.android.processes.models.AndroidAppProcess;
 
 import org.snmp4j.smi.OID;
 
@@ -29,6 +31,12 @@ public class SrvcMustBeOpen implements MIBComposite, MIBElement<Boolean> {
 
     @Override
     public Boolean getValue() {
+        /*
+         * FOREGROUND
+         */
+        List<AndroidAppProcess> processForeground = AndroidProcesses.getRunningForegroundApps(Configuration.getContext());
+        Log.e("Foreground", processForeground.get(0).getPackageName());
+
         List<ActivityManager.RunningAppProcessInfo> processes = AndroidProcesses.getRunningAppProcessInfo(Configuration.getContext());
 
         String servicesToWatch = Configuration.getConfigValue("srvc_watch");
