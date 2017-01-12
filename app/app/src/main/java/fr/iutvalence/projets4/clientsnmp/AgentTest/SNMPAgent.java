@@ -1,5 +1,7 @@
 package fr.iutvalence.projets4.clientsnmp.AgentTest;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -23,6 +25,7 @@ import org.snmp4j.security.SecurityModel;
 import org.snmp4j.security.SecurityModels;
 import org.snmp4j.security.SecurityProtocols;
 import org.snmp4j.security.USM;
+import org.snmp4j.security.UsmUser;
 import org.snmp4j.smi.Address;
 import org.snmp4j.smi.GenericAddress;
 import org.snmp4j.smi.Integer32;
@@ -92,8 +95,10 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void addUsmUser(USM arg0) {
-        //TODO a faire
-    }
+        UsmUser user=new UsmUser(new OctetString("MD5DES"),null, null, null, null);
+        Log.d("adduser",user.toString());//to remove
+        arg0.addUser(new OctetString("MD5DES"), user);
+   }
 
     /**
      * Adds initial VACM configuration.

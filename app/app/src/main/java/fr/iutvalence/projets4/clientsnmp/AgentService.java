@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import org.snmp4j.security.UsmUser;
+import org.snmp4j.security.UsmUserEntry;
 import org.snmp4j.smi.OctetString;
 
 import java.io.IOException;
@@ -42,8 +43,6 @@ public class AgentService extends IntentService {
         };
         try {
             agent = new SNMPAgent("udp:127.0.0.1/2001");
-            agent.getUsm().addUser(new OctetString("MD5DES"),new UsmUser(new OctetString("MD5DES"),null, null, null, null));
-            agent.getUsm().getUserTable().addUser(agent.getUsm().getUser(agent.getUsm().getLocalEngineID(),new OctetString("MD5DES")));
             agent.start();
         } catch (IOException e) {
             e.printStackTrace();
