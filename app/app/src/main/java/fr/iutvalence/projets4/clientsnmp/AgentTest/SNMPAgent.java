@@ -20,6 +20,8 @@ import org.snmp4j.agent.security.MutableVACM;
 import org.snmp4j.mp.MPv3;
 import org.snmp4j.security.SecurityLevel;
 import org.snmp4j.security.SecurityModel;
+import org.snmp4j.security.SecurityModels;
+import org.snmp4j.security.SecurityProtocols;
 import org.snmp4j.security.USM;
 import org.snmp4j.smi.Address;
 import org.snmp4j.smi.GenericAddress;
@@ -32,14 +34,12 @@ import org.snmp4j.transport.TransportMappings;
 public class SNMPAgent extends BaseAgent {
 
     private String address;
-
     /**
      *
      * @param address
      * @throws IOException
      */
     public SNMPAgent(String address) throws IOException {
-
         /**
          * Creates a base agent with boot-counter, config file, and a
          * CommandProcessor for processing SNMP requests. Parameters:
@@ -54,6 +54,8 @@ public class SNMPAgent extends BaseAgent {
                 new CommandProcessor(
                         new OctetString(MPv3.createLocalEngineID())));
         this.address = address;
+        this.usm= new USM(SecurityProtocols.getInstance(), new OctetString(MPv3.createLocalEngineID()),0);//A redefinir
+
     }
 
     /**
@@ -90,8 +92,7 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void addUsmUser(USM arg0) {
-        // TODO Auto-generated method stub
-
+        //TODO a faire
     }
 
     /**
