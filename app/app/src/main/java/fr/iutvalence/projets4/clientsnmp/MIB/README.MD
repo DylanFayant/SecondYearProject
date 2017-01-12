@@ -9,4 +9,6 @@ Hardware (.2)
     HwMemoryUsage (.3)      - FULLY DONE -
     HwSensorActivity (.4)   - FULLY DONE -
 Services (.3)
-    SrvcTMMOpen (.1)        - NOT DONE -
+    SrvcMustBeOpen (.1)     - FULLY DONE -
+    SrvcInForeground (.2)   - NOT DONE -
+    SrvcHasCrash            - NOT DONE -
