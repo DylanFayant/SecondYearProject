@@ -1,10 +1,5 @@
 package fr.iutvalence.projets4.clientsnmp.AgentTest;
 
-import android.util.Log;
-
-import java.io.File;
-import java.io.IOException;
-
 import org.snmp4j.TransportMapping;
 import org.snmp4j.agent.BaseAgent;
 import org.snmp4j.agent.CommandProcessor;
@@ -22,10 +17,7 @@ import org.snmp4j.agent.security.MutableVACM;
 import org.snmp4j.mp.MPv3;
 import org.snmp4j.security.SecurityLevel;
 import org.snmp4j.security.SecurityModel;
-import org.snmp4j.security.SecurityModels;
-import org.snmp4j.security.SecurityProtocols;
 import org.snmp4j.security.USM;
-import org.snmp4j.security.UsmUser;
 import org.snmp4j.smi.Address;
 import org.snmp4j.smi.GenericAddress;
 import org.snmp4j.smi.Integer32;
@@ -34,15 +26,23 @@ import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.Variable;
 import org.snmp4j.transport.TransportMappings;
 
-public class SNMPAgent extends BaseAgent {
+import java.io.File;
+import java.io.IOException;
 
+/**
+ * Created by simon on 13/01/2017.
+ */
+
+public class SNMPAgent extends BaseAgent {
     private String address;
+
     /**
      *
      * @param address
      * @throws IOException
      */
     public SNMPAgent(String address) throws IOException {
+
         /**
          * Creates a base agent with boot-counter, config file, and a
          * CommandProcessor for processing SNMP requests. Parameters:
@@ -57,15 +57,13 @@ public class SNMPAgent extends BaseAgent {
                 new CommandProcessor(
                         new OctetString(MPv3.createLocalEngineID())));
         this.address = address;
-        this.usm= new USM(SecurityProtocols.getInstance(), new OctetString(MPv3.createLocalEngineID()),0);//A redefinir
-
     }
 
     /**
      * Adds community to security name mappings needed for SNMPv1 and SNMPv2c.
      */
     @Override
-    protected void addCommunities(SnmpCommunityMIB communityMIB) {/*
+    protected void addCommunities(SnmpCommunityMIB communityMIB) {
         Variable[] com2sec = new Variable[] { new OctetString("public"),
                 new OctetString("cpublic"), // security name
                 getAgent().getContextEngineID(), // local engine ID
@@ -76,8 +74,7 @@ public class SNMPAgent extends BaseAgent {
         };
         MOTableRow row = communityMIB.getSnmpCommunityEntry().createRow(
                 new OctetString("public2public").toSubIndex(true), com2sec);
-        communityMIB.getSnmpCommunityEntry().addRow(row);
-*/
+        communityMIB.getSnmpCommunityEntry().addRow((SnmpCommunityMIB.SnmpCommunityEntryRow) row);//Not sur if cast is possible
     }
 
     /**
@@ -95,10 +92,9 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void addUsmUser(USM arg0) {
-        UsmUser user=new UsmUser(new OctetString("MD5DES"),null, null, null, null);
-        Log.d("adduser",user.toString());//to remove
-        arg0.addUser(new OctetString("MD5DES"), user);
-   }
+        // TODO Auto-generated method stub
+
+    }
 
     /**
      * Adds initial VACM configuration.
@@ -114,7 +110,6 @@ public class SNMPAgent extends BaseAgent {
                 MutableVACM.VACM_MATCH_EXACT, new OctetString("fullReadView"),
                 new OctetString("fullWriteView"), new OctetString(
                         "fullNotifyView"), StorageType.nonVolatile);
-
         vacm.addViewTreeFamily(new OctetString("fullReadView"), new OID("1.3"),
                 new OctetString(), VacmMIB.vacmViewIncluded,
                 StorageType.nonVolatile);
