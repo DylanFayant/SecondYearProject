@@ -6,21 +6,39 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
+ * Class who gives us the device's CPU Usage
+ * PROBLEM : It gives an approximate value
  * Created by Thundermist on 09/01/17.
  */
-
 public class HwCpuUsage implements MIBComposite, MIBElement<Double> {
 
+    /**
+     * Get the current composite
+     * It returns this because we are in a tree's leaf
+     * @param oid
+     * @return MIBComposite (this)
+     */
     @Override
     public MIBComposite getComposite(OID oid) {
         return this;
     }
 
+    /**
+     * Set a composite into the current composite
+     * This function is disabled because we can't add sub-tree to a leaf
+     * @param oid
+     * @param mibComposite
+     */
     @Override
     public void setComposite(OID oid, MIBComposite mibComposite) {
 
     }
 
+    /**
+     * Get the device's CPU Usage
+     * Approximate value !
+     * @return A double percentage between 0 and 1 of the CPU Usage
+     */
     @Override
     public Double getValue() {
         try

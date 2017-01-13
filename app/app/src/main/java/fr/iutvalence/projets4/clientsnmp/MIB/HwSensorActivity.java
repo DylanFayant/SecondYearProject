@@ -1,37 +1,48 @@
 package fr.iutvalence.projets4.clientsnmp.MIB;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.Bundle;
 import android.os.StrictMode;
-
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.snmp4j.smi.OID;
 
 import java.io.FileInputStream;
 
-
 /**
+ * Class who gives us the device's Temperature
  * Created by Thundermist on 09/01/17.
  */
-
 public class HwSensorActivity implements MIBComposite, MIBElement<Long> {
 
+    /**
+     *
+     */
+    private byte[] mBuffer = new byte[4096];
 
+    /**
+     * Get the current composite
+     * It returns this because we are in a tree's leaf
+     * @param oid
+     * @return MIBComposite (this)
+     */
     @Override
     public MIBComposite getComposite(OID oid) {
         return this;
     }
 
+    /**
+     * Set a composite into the current composite
+     * This function is disabled because we can't add sub-tree to a leaf
+     * @param oid
+     * @param mibComposite
+     */
     @Override
     public void setComposite(OID oid, MIBComposite mibComposite) {
 
     }
 
+    /**
+     * Get the device's temperature
+     * @return A Long temparature un celsius degrees multiplied by 1000
+     */
     @Override
     public Long getValue() {
         String file = readFile("/sys/devices/virtual/thermal/thermal_zone0/temp", '\n');
@@ -42,7 +53,12 @@ public class HwSensorActivity implements MIBComposite, MIBElement<Long> {
         return Long.valueOf(0);
     }
 
-    private byte[] mBuffer = new byte[4096];
+    /**
+     * Returns the string of the given file's content until the endChar
+     * @param file
+     * @param endChar
+     * @return String
+     */
     private String readFile(String file, char endChar) {
         StrictMode.ThreadPolicy savedPolicy = StrictMode.allowThreadDiskReads();
         FileInputStream is = null;
