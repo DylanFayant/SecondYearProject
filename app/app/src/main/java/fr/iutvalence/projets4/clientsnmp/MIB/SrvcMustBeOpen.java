@@ -1,13 +1,12 @@
 package fr.iutvalence.projets4.clientsnmp.MIB;
 
 import android.app.ActivityManager;
-import android.util.Log;
 
 import com.jaredrummler.android.processes.AndroidProcesses;
-import com.jaredrummler.android.processes.models.AndroidAppProcess;
 
 import org.snmp4j.smi.OID;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,31 +30,24 @@ public class SrvcMustBeOpen implements MIBComposite, MIBElement<Boolean> {
 
     @Override
     public Boolean getValue() {
-        /*
-         * FOREGROUND
-         */
-        List<AndroidAppProcess> processForeground = AndroidProcesses.getRunningForegroundApps(Configuration.getContext());
-        Log.e("Foreground", processForeground.get(0).getPackageName());
 
-        List<ActivityManager.RunningAppProcessInfo> processes = AndroidProcesses.getRunningAppProcessInfo(Configuration.getContext());
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = AndroidProcesses.getRunningAppProcessInfo(Configuration.getContext());
+        List<String> runningAppProcessesNames = new ArrayList<String>();
+
+        for(ActivityManager.RunningAppProcessInfo runningAppProcess : runningAppProcesses)
+        {
+            runningAppProcessesNames.add(runningAppProcess.processName);
+        }
 
         String servicesToWatch = Configuration.getConfigValue("srvc_watch");
         List<String> listOfProcessesToWatch = Arrays.asList(servicesToWatch.split(";"));
 
-        int i = 0;
-
-        for(String aService : listOfProcessesToWatch) {
-            for (ActivityManager.RunningAppProcessInfo aProcess : processes)
-            {
-                if (aProcess.processName.equals(aService)) {
-                    i++;
-                }
-            }
+        for(String processToWatch : listOfProcessesToWatch)
+        {
+            if(!runningAppProcessesNames.contains(processToWatch))
+                return false;
         }
 
-        if(listOfProcessesToWatch.size() == i)
-            return true;
-        else
-            return false;
+        return true;
     }
 }

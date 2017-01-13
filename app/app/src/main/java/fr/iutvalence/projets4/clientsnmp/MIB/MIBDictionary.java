@@ -16,6 +16,7 @@ public class MIBDictionary {
     public final static OID HWMEMORYUSAGE =             new OID("1.3.6.1.2.1.2.3");
     public final static OID HWSENSORACTIVITY =          new OID("1.3.6.1.2.1.2.4");
     public final static OID SRVCMUSTBEOPEN =            new OID("1.3.6.1.2.1.3.1");
+    public final static OID SRVCFOREGROUNDTMM =         new OID("1.3.6.1.2.1.3.2");
 
     MIBComposite mibTree;
 
@@ -33,6 +34,7 @@ public class MIBDictionary {
         this.mibTree.setComposite(HWMEMORYUSAGE,            new HwMemoryUsage());
         this.mibTree.setComposite(HWSENSORACTIVITY,         new HwSensorActivity());
         this.mibTree.setComposite(SRVCMUSTBEOPEN,           new SrvcMustBeOpen());
+        this.mibTree.setComposite(SRVCFOREGROUNDTMM,        new SrvcForegroundTMM());
     }
 
     public MIBElement getMIBElement(OID oid)
