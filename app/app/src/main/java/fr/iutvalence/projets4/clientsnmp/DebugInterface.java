@@ -28,7 +28,7 @@ public class DebugInterface extends ActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Configuration.initConfiguration(this);
+        Configuration.setContext(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.debug_interface);
         DebugInterface.instance = this;
