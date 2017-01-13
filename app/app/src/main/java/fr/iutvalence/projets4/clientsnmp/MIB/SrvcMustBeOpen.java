@@ -16,6 +16,9 @@ import fr.iutvalence.projets4.clientsnmp.Configuration;
  * Created by ethis on 09/01/17.
  */
 
+/**
+ * Deprecated from Android Nougat
+ */
 public class SrvcMustBeOpen implements MIBComposite, MIBElement<Boolean> {
 
     @Override

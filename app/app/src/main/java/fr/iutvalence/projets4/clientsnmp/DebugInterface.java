@@ -41,7 +41,7 @@ public class DebugInterface extends ActionBarActivity {
         String[] listToSurvey = new String[7];
         listToSurvey[0] = "Systeme descritpion : " + mib.getMIBElement(MIBDictionary.SYSDESCR_OID).getValue().toString();
         listToSurvey[1] = "Android version : " + mib.getMIBElement(MIBDictionary.SYSANDROIDVERSION_OID).getValue().toString();
-        listToSurvey[2] = "Sys uptime : " + mib.getMIBElement(MIBDictionary.SYSUPTIME_OID).getValue().toString();
+        listToSurvey[2] = "Sys uptime : " + this.getClearUptime((long)mib.getMIBElement(MIBDictionary.SYSUPTIME_OID).getValue());
         listToSurvey[3] = "CPU usage : " + (100 * (double) mib.getMIBElement(MIBDictionary.HWCPUUSAGE).getValue()) + "%";
         listToSurvey[4] = "Disque usage : " + (100 * Double.parseDouble(f.format(mib.getMIBElement(MIBDictionary.HWDISKUSAGE).getValue()))) + "%";
         listToSurvey[5] = "Memory usage : " + (100 * Double.parseDouble(f.format(mib.getMIBElement(MIBDictionary.HWMEMORYUSAGE).getValue()))) + "%";
@@ -77,6 +77,21 @@ public class DebugInterface extends ActionBarActivity {
         spec.setContent(R.id.tab3);
         spec.setIndicator("tab 3");
         host.addTab(spec);
+    }
+
+    /**
+     * Transofrm a time in milliseconds into a clear String : %day% d %hours% h %minutes% m %secondes% s
+     * @param timeInMilliseconds
+     * @return string of clear time
+     */
+    private String getClearUptime(long timeInMilliseconds) {
+        long seconds = timeInMilliseconds / 1000;
+        long minutes = seconds / 60;
+        long hours = minutes / 60;
+        long days = hours / 24;
+        String time = days + " d " + hours % 24 + " h " + minutes % 60 + " m " + seconds % 60 + " s";
+
+        return time;
     }
 
     public void refresh()
