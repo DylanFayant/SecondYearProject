@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import fr.iutvalence.projets4.clientsnmp.MIB.MIBElement;
+
 public class ServiceActivity extends Activity {
     Intent intent;
     @Override
