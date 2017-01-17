@@ -3,13 +3,10 @@ package fr.iutvalence.projets4.clientsnmp.MIB;
 import org.snmp4j.smi.OID;
 
 /**
- * Created by ethis on 09/01/17.
- */
-
-/**
  * Represents the dictionary of the MIB
  * It creates and fill the MIB
  * It allows the access to a MIBElement.
+ * Created by ethis on 09/01/17.
  */
 public class MIBDictionary {
 
