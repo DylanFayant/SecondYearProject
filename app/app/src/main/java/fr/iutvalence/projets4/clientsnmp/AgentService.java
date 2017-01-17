@@ -5,15 +5,21 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 
+import org.snmp4j.agent.mo.MOAccessImpl;
 import org.snmp4j.security.UsmUser;
 import org.snmp4j.security.UsmUserEntry;
+import org.snmp4j.smi.Integer32;
+import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
+import org.snmp4j.smi.SMIConstants;
 
 import java.io.IOException;
 
 import fr.iutvalence.projets4.clientsnmp.AgentTest.MOCreator;
 import fr.iutvalence.projets4.clientsnmp.AgentTest.SNMPAgent;
+import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 
+import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 import static org.snmp4j.mp.SnmpConstants.sysDescr;
 
 public class AgentService extends IntentService {
@@ -55,8 +61,18 @@ public class AgentService extends IntentService {
 
         // Register a system description, use one from you product environment
         // to test with
-        agent.registerManagedObject(MOCreator.createReadOnly(sysDescr,
-                "Normalement la description système est là"));
+        //agent.registerManagedObject(MOCreator.createReadOnly(sysDescr,"Normalement la description système est là"));
+        MIBDictionary dic = new MIBDictionary();
+        //agent.registerManagedObject(MOCreator.createReadOnly(MIBDictionary.SYSDESCR_OID, dic.getMIBElement(MIBDictionary.SYSDESCR_OID).getValue().toString()));
+        //agent.registerManagedObject(MOCreator.createReadOnly(MIBDictionary.SYSUPTIME_OID, dic.getMIBElement(MIBDictionary.SYSUPTIME_OID).getValue().toString()));
+
+        MOTableBuilder builder = new MOTableBuilder(MIBDictionary.SYSDESCR_OID)
+                .addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE)
+                //first row
+                .addRowValue(new OctetString("loopback"))
+                //next row
+                .addRowValue(new Integer32(4));
+        agent.registerManagedObject(builder.build());
 
         runNotifier.run();
 
