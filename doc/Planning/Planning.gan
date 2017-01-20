@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-12-12" view-index="0" gantt-divider-location="474" resource-divider-location="161" version="2.8.1" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-11-28" view-index="0" gantt-divider-location="474" resource-divider-location="161" version="2.8.1" locale="fr">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
         <field id="tpd3" name="Nom" width="299" order="0"/>
@@ -273,7 +273,7 @@ Présentation du travail réalisé pour la première sprint]]></notes>
                 <depend id="274" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="274" name="Envoi du compte rendu de réunion" color="#cc3300" meeting="true" start="2017-02-01" duration="0" complete="0" expand="true"/>
-            <task id="340" name="Préparation du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="false">
+            <task id="340" name="Préparation du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="true">
                 <task id="341" name="Mise à jour du diagramme gantt" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="true"/>
                 <task id="342" name="Mise à jour du tableau des coûts" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="true"/>
             </task>
