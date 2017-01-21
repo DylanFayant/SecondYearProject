@@ -20,6 +20,8 @@ import fr.iutvalence.projets4.clientsnmp.AgentTest.SNMPAgent;
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
+import fr.iutvalence.projets4.clientsnmp.MIB.MIBElement;
+
 import static org.snmp4j.mp.SnmpConstants.sysDescr;
 
 public class AgentService extends IntentService {
@@ -66,16 +68,34 @@ public class AgentService extends IntentService {
         //agent.registerManagedObject(MOCreator.createReadOnly(MIBDictionary.SYSDESCR_OID, dic.getMIBElement(MIBDictionary.SYSDESCR_OID).getValue().toString()));
         //agent.registerManagedObject(MOCreator.createReadOnly(MIBDictionary.SYSUPTIME_OID, dic.getMIBElement(MIBDictionary.SYSUPTIME_OID).getValue().toString()));
 
+        Log.d("OID", (MIBDictionary.SYSDESCR_OID.toString()));
+        /*Log.d("OIDVal(1)", (String.valueOf(MIBDictionary.SYSDESCR_OID.get(1))));
+        Log.d("OIDNext", (String.valueOf(MIBDictionary.SYSDESCR_OID.nextPeer())));
+        Log.d("OIDPred", (String.valueOf(MIBDictionary.SYSDESCR_OID.predecessor())));
+        Log.d("OIDForm", (MIBDictionary.SYSDESCR_OID.format()));
+        Log.d("OIDappend(1)", (MIBDictionary.SYSDESCR_OID.append(1).toString()));
+        Log.d("OIDappend(OID 1)", (MIBDictionary.SYSDESCR_OID.append(new OID("1")).toString()));*/
+
+        registerManagedObject(agent, null);
+        //runNotifier.run();
+
+
+    }
+    private void registerManagedObject(SNMPAgent agent, MIBElement[] elements){//To Change, just a default but MIBElement isn't and couldn't be used at the moment
+
+
+
         MOTableBuilder builder = new MOTableBuilder(MIBDictionary.SYSDESCR_OID)
                 .addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE)
+                //        .addColumnType(SMIConstants.SYNTAX_OCTET_STRING,MOAccessImpl.ACCESS_READ_WRITE)
                 //first row
-                .addRowValue(new OctetString("loopback"))
+                .addRowValue(new OctetString("1 value"))
                 //next row
-                .addRowValue(new Integer32(4));
+                .addRowValue(new Integer32(4))
+
+                .addRowValue(new OctetString("third value"))
+                .addRowValue(new OctetString("4th value"));
+
         agent.registerManagedObject(builder.build());
-
-        runNotifier.run();
-
-
     }
 }
