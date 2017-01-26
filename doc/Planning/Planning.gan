@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-11-28" view-index="0" gantt-divider-location="474" resource-divider-location="161" version="2.8.1" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-12-19" view-index="0" gantt-divider-location="347" resource-divider-location="161" version="2.8.1" locale="fr">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="299" order="0"/>
-        <field id="tpd4" name="Date de début" width="76" order="1"/>
-        <field id="tpd5" name="Date de fin" width="95" order="2"/>
+        <field id="tpd3" name="Nom" width="204" order="0"/>
+        <field id="tpd4" name="Date de début" width="56" order="1"/>
+        <field id="tpd5" name="Date de fin" width="68" order="2"/>
         <option id="color.recent"><![CDATA[#ffcc66 #ff9900 #cc3300 #00cc66]]></option>
     </view>
     <view id="resource-table">
@@ -227,8 +227,6 @@ Destinataire: M.OCCELLO, M.GENTHIAL, M.ROTTELEUR]]></notes>
                 <task id="174" name="Répétitions" color="#8cb6ce" meeting="false" start="2016-12-12" duration="3" complete="0" expand="true">
                     <notes><![CDATA[Introduction des objectifs, du reccueil des besoins, de l'analyse et des choix techniques.]]></notes>
                     <depend id="60" type="2" difference="0" hardness="Strong"/>
-                    <depend id="208" type="2" difference="0" hardness="Strong"/>
-                    <depend id="401" type="2" difference="0" hardness="Strong"/>
                     <depend id="411" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
@@ -363,17 +361,7 @@ utilisateur et d'un document développeur,
         <allocation task-id="171" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
         <allocation task-id="74" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
         <allocation task-id="200" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
-        <allocation task-id="205" resource-id="0" function="Default:0" responsible="true" load="62.0"/>
-        <allocation task-id="206" resource-id="0" function="Default:0" responsible="true" load="150.0"/>
-        <allocation task-id="207" resource-id="0" function="Default:0" responsible="true" load="825.0"/>
-        <allocation task-id="211" resource-id="0" function="Default:0" responsible="false" load="12.5"/>
         <allocation task-id="270" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="299" resource-id="0" function="Default:0" responsible="true" load="12.0"/>
-        <allocation task-id="398" resource-id="0" function="Default:0" responsible="true" load="62.0"/>
-        <allocation task-id="399" resource-id="0" function="Default:0" responsible="true" load="150.0"/>
-        <allocation task-id="400" resource-id="0" function="Default:0" responsible="true" load="825.0"/>
-        <allocation task-id="403" resource-id="0" function="Default:0" responsible="true" load="12.0"/>
-        <allocation task-id="404" resource-id="0" function="Default:0" responsible="false" load="12.5"/>
         <allocation task-id="408" resource-id="0" function="Default:0" responsible="true" load="62.0"/>
         <allocation task-id="409" resource-id="0" function="Default:0" responsible="true" load="150.0"/>
         <allocation task-id="410" resource-id="0" function="Default:0" responsible="true" load="825.0"/>
@@ -395,16 +383,6 @@ utilisateur et d'un document développeur,
         <allocation task-id="173" resource-id="1" function="Default:0" responsible="false" load="0.0"/>
         <allocation task-id="59" resource-id="1" function="Default:0" responsible="false" load="0.0"/>
         <allocation task-id="200" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
-        <allocation task-id="205" resource-id="1" function="Default:0" responsible="false" load="125.0"/>
-        <allocation task-id="212" resource-id="1" function="Default:0" responsible="true" load="175.0"/>
-        <allocation task-id="211" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="209" resource-id="1" function="Default:0" responsible="false" load="425.0"/>
-        <allocation task-id="299" resource-id="1" function="Default:0" responsible="false" load="12.0"/>
-        <allocation task-id="398" resource-id="1" function="Default:0" responsible="false" load="125.0"/>
-        <allocation task-id="402" resource-id="1" function="Default:0" responsible="false" load="425.0"/>
-        <allocation task-id="403" resource-id="1" function="Default:0" responsible="false" load="12.0"/>
-        <allocation task-id="404" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="405" resource-id="1" function="Default:0" responsible="true" load="175.0"/>
         <allocation task-id="408" resource-id="1" function="Default:0" responsible="false" load="125.0"/>
         <allocation task-id="412" resource-id="1" function="Default:0" responsible="false" load="425.0"/>
         <allocation task-id="413" resource-id="1" function="Default:0" responsible="false" load="12.0"/>
@@ -421,16 +399,6 @@ utilisateur et d'un document développeur,
         <allocation task-id="174" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="173" resource-id="2" function="Default:0" responsible="false" load="0.0"/>
         <allocation task-id="200" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
-        <allocation task-id="205" resource-id="2" function="Default:0" responsible="false" load="125.0"/>
-        <allocation task-id="209" resource-id="2" function="Default:0" responsible="false" load="75.0"/>
-        <allocation task-id="208" resource-id="2" function="Default:0" responsible="true" load="300.0"/>
-        <allocation task-id="207" resource-id="2" function="Default:0" responsible="false" load="400.0"/>
-        <allocation task-id="299" resource-id="2" function="Default:0" responsible="false" load="12.0"/>
-        <allocation task-id="398" resource-id="2" function="Default:0" responsible="false" load="125.0"/>
-        <allocation task-id="400" resource-id="2" function="Default:0" responsible="false" load="400.0"/>
-        <allocation task-id="401" resource-id="2" function="Default:0" responsible="true" load="300.0"/>
-        <allocation task-id="402" resource-id="2" function="Default:0" responsible="false" load="75.0"/>
-        <allocation task-id="403" resource-id="2" function="Default:0" responsible="false" load="12.0"/>
         <allocation task-id="408" resource-id="2" function="Default:0" responsible="false" load="125.0"/>
         <allocation task-id="410" resource-id="2" function="Default:0" responsible="false" load="400.0"/>
         <allocation task-id="411" resource-id="2" function="Default:0" responsible="true" load="300.0"/>
@@ -446,12 +414,6 @@ utilisateur et d'un document développeur,
         <allocation task-id="171" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="174" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="200" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
-        <allocation task-id="205" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="211" resource-id="3" function="Default:0" responsible="true" load="275.0"/>
-        <allocation task-id="209" resource-id="3" function="Default:0" responsible="true" load="425.0"/>
-        <allocation task-id="398" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="402" resource-id="3" function="Default:0" responsible="true" load="425.0"/>
-        <allocation task-id="404" resource-id="3" function="Default:0" responsible="true" load="275.0"/>
         <allocation task-id="408" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="412" resource-id="3" function="Default:0" responsible="true" load="425.0"/>
         <allocation task-id="414" resource-id="3" function="Default:0" responsible="true" load="275.0"/>

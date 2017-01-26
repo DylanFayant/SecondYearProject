@@ -1,6 +1,12 @@
 package fr.iutvalence.projets4.clientsnmp.MIB;
 
+import android.util.Log;
+
 import org.snmp4j.smi.OID;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents the dictionary of the MIB
@@ -50,6 +56,27 @@ public class MIBDictionary {
         this.mibTree.setComposite(HWSENSORACTIVITY,         new HwSensorActivity());
         this.mibTree.setComposite(SRVCMUSTBEOPEN,           new SrvcMustBeOpen());
         this.mibTree.setComposite(SRVCFOREGROUNDTMM,        new SrvcForegroundTMM());
+    }
+
+    /**
+     * Get the OIDs list from the MIB.
+     * @return an array of oids.
+     */
+    public Object[] getMIBOids() {
+        Field[] fields = MIBDictionary.class.getDeclaredFields();
+
+        List oidList = new ArrayList<OID>();
+        for (Field f : fields) {
+            if(f.getType().equals(OID.class)) {
+                try {
+                    oidList.add((OID) f.get(new OID()));
+                } catch (IllegalAccessException e) {
+                    Log.e("MIBDictionary getOIDs", "Illegal Access Exception during getting all the oids");
+                }
+            }
+        }
+
+        return oidList.toArray();
     }
 
     /**
