@@ -62,7 +62,7 @@ public class MIBDictionary {
      * Get the OIDs list from the MIB.
      * @return an array of oids.
      */
-    public Object[] getMIBOids() {
+    public List<OID> getMIBOids() {
         Field[] fields = MIBDictionary.class.getDeclaredFields();
 
         List oidList = new ArrayList<OID>();
@@ -76,7 +76,7 @@ public class MIBDictionary {
             }
         }
 
-        return oidList.toArray();
+        return oidList;
     }
 
     /**
