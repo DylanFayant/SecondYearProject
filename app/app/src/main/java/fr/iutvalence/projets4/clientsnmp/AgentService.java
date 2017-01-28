@@ -9,11 +9,13 @@ import org.snmp4j.agent.mo.MOAccessImpl;
 import org.snmp4j.security.UsmUser;
 import org.snmp4j.security.UsmUserEntry;
 import org.snmp4j.smi.Integer32;
+import org.snmp4j.smi.Null;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.SMIConstants;
 
 import java.io.IOException;
+import java.util.List;
 
 import fr.iutvalence.projets4.clientsnmp.AgentTest.MOCreator;
 import fr.iutvalence.projets4.clientsnmp.AgentTest.SNMPAgent;
@@ -29,7 +31,6 @@ public class AgentService extends IntentService {
     public AgentService(){
         super(AgentService.class.getName());
     }
-
     Handler handle= new Handler();
     SNMPAgent agent;
 
@@ -61,40 +62,56 @@ public class AgentService extends IntentService {
         // override that method and register the MIBs that you need
         agent.unregisterManagedObject(agent.getSnmpv2MIB());
 
-        // Register a system description, use one from you product environment
-        // to test with
-        //agent.registerManagedObject(MOCreator.createReadOnly(sysDescr,"Normalement la description système est là"));
-        //agent.registerManagedObject(MOCreator.createReadOnly(MIBDictionary.SYSDESCR_OID, dic.getMIBElement(MIBDictionary.SYSDESCR_OID).getValue().toString()));
-        //agent.registerManagedObject(MOCreator.createReadOnly(MIBDictionary.SYSUPTIME_OID, dic.getMIBElement(MIBDictionary.SYSUPTIME_OID).getValue().toString()));
-
-        Log.d("OID", (MIBDictionary.SYSDESCR_OID.toString()));
-        /*Log.d("OIDVal(1)", (String.valueOf(MIBDictionary.SYSDESCR_OID.get(1))));
-        Log.d("OIDNext", (String.valueOf(MIBDictionary.SYSDESCR_OID.nextPeer())));
-        Log.d("OIDPred", (String.valueOf(MIBDictionary.SYSDESCR_OID.predecessor())));
-        Log.d("OIDForm", (MIBDictionary.SYSDESCR_OID.format()));
-        Log.d("OIDappend(1)", (MIBDictionary.SYSDESCR_OID.append(1).toString()));
-        Log.d("OIDappend(OID 1)", (MIBDictionary.SYSDESCR_OID.append(new OID("1")).toString()));*/
-
-        registerManagedObject(agent, null);
+        MIBDictionary dic = new MIBDictionary();
+        registerManagedObject(agent, dic.getMIBOids(),dic);
         //runNotifier.run();
 
 
     }
-    private void registerManagedObject(SNMPAgent agent, MIBElement[] elements){//To Change, just a default but MIBElement isn't and couldn't be used at the moment
 
-        MIBDictionary dic = new MIBDictionary();
-        //OID[] oidList = dic.getMIBOids();
-        MOTableBuilder builder = new MOTableBuilder(MIBDictionary.SYSDESCR_OID)
-                .addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE)
-                //        .addColumnType(SMIConstants.SYNTAX_OCTET_STRING,MOAccessImpl.ACCESS_READ_WRITE)
-                //first row
-                .addRowValue(new OctetString("1 value"))
-                //next row
-                .addRowValue(new Integer32(4))
 
-                .addRowValue(new OctetString("third value"))
-                .addRowValue(new OctetString("4th value"));
+    /**
+     * Register all Managed Objects from our MIB
+     * @param agent an snmpv2 agent to register the values onto
+     * @param oidList a list of OID with the same baseOID (size-2)
+     * @param dic the dictionary where the values are
+     */
+    private void registerManagedObject(SNMPAgent agent,List<OID> oidList, MIBDictionary dic){
 
+        ////////////////////////////////////////////////////////////////////////////////////////
+        MIBElement[][] mergedElements = new MIBElement[OID.MAX_OID_LEN][OID.MAX_OID_LEN];
+        OID baseOID=oidList.get(1).trim().trim();
+        int i;
+        int j;
+        int column;
+        int line;
+        int maxC=1;
+        int maxL=1;
+        for (i = 0; i<oidList.size(); i++) {
+            OID current=oidList.get(i);
+            Log.d("current",current.toString());//Debug
+            int[] parsedOID = current.toIntArray();
+            column = parsedOID[parsedOID.length-2];
+            line=parsedOID[parsedOID.length-1];
+            mergedElements[column][line]=dic.getMIBElement(current);
+            if(maxC<column)maxC=column;
+            if(maxL<line)maxL=line;
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////
+        MOTableBuilder builder = new MOTableBuilder(baseOID);
+        for(i=1;i<=maxC;i++){
+            builder.addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE);
+            for(j=1;j<=maxL;j++){
+                if (mergedElements[i][j]== null){
+                    builder.addRowValue(new OctetString("No object here"));
+                    Log.d("MERGED","NULL");//Debug
+
+                }else{
+                    builder.addRowValue(new OctetString(mergedElements[i][j].getValue().toString()));
+                    Log.d("MERGED",mergedElements[i][j].getValue().toString());//Debug
+                }
+            }
+        }
         agent.registerManagedObject(builder.build());
     }
 }
