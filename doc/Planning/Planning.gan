@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2016-12-19" view-index="0" gantt-divider-location="347" resource-divider-location="161" version="2.8.1" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2017-03-18" view-index="0" gantt-divider-location="528" resource-divider-location="339" version="2.8.1" locale="fr">
     <description/>
-    <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="204" order="0"/>
-        <field id="tpd4" name="Date de début" width="56" order="1"/>
-        <field id="tpd5" name="Date de fin" width="68" order="2"/>
-        <option id="color.recent"><![CDATA[#ffcc66 #ff9900 #cc3300 #00cc66]]></option>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="349" order="0"/>
+        <field id="tpd4" name="Date de début" width="97" order="1"/>
+        <field id="tpd5" name="Date de fin" width="78" order="2"/>
+        <option id="color.recent"><![CDATA[#00cc66 #ffcc66 #000000 #66ffcc #9999ff #ff9999 #ff9900 #cc3300]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Nom" width="112" order="0"/>
-        <field id="1" name="Rôle par défaut" width="15" order="1"/>
-        <field id="tpc1" name="Rôle conception" width="15" order="2"/>
-        <field id="tpc2" name="Rôle gestion" width="15" order="3"/>
+        <field id="0" name="Nom" width="156" order="0"/>
+        <field id="1" name="Rôle par défaut" width="60" order="1"/>
+        <field id="tpc1" name="Rôle conception" width="60" order="2"/>
+        <field id="tpc2" name="Rôle gestion" width="59" order="3"/>
     </view>
     <!-- -->
     <calendars>
@@ -96,44 +96,6 @@
         <date year="2013" month="12" date="25" type="HOLIDAY"><![CDATA[Christmas Day]]></date>
         <date year="2014" month="1" date="1" type="HOLIDAY"><![CDATA[New Years Day]]></date>
         <date year="2014" month="4" date="21" type="HOLIDAY"><![CDATA[Easter Monday]]></date>
-        <date year="2014" month="5" date="1" type="HOLIDAY"><![CDATA[Labour Day]]></date>
-        <date year="2015" month="8" date="15" type="HOLIDAY"><![CDATA[V-E Day
-        Mothers Day
-        Ascension Day
-        Whitmonday
-        Fathers Day
-        Bastille Day
-        Assumption Day
-        All Saints Day
-        Armistice Day
-        Christmas Day
-        New Years Day
-        Easter Monday
-        Labour Day
-        V-E Day
-        Ascension Day
-        Mothers Day
-        Whitmonday
-        Fathers Day
-        Bastille Day
-        Assumption Day]]></date>
-        <date year="2015" month="11" date="1" type="HOLIDAY"><![CDATA[All Saints Day]]></date>
-        <date year="2015" month="11" date="11" type="HOLIDAY"><![CDATA[Armistice Day]]></date>
-        <date year="2015" month="12" date="25" type="HOLIDAY"><![CDATA[Christmas Day]]></date>
-        <date year="2016" month="1" date="1" type="HOLIDAY"><![CDATA[New Years Day]]></date>
-        <date year="2016" month="3" date="28" type="HOLIDAY"><![CDATA[Easter Monday]]></date>
-        <date year="2016" month="5" date="1" type="HOLIDAY"><![CDATA[Labour Day]]></date>
-        <date year="2016" month="5" date="5" type="HOLIDAY"><![CDATA[Ascension Day]]></date>
-        <date year="2016" month="5" date="8" type="HOLIDAY"><![CDATA[V-E Day]]></date>
-        <date year="2016" month="5" date="16" type="HOLIDAY"><![CDATA[Whitmonday]]></date>
-        <date year="2016" month="5" date="29" type="NEUTRAL"><![CDATA[Mothers Day]]></date>
-        <date year="2016" month="6" date="19" type="NEUTRAL"><![CDATA[Fathers Day]]></date>
-        <date year="2016" month="7" date="14" type="HOLIDAY"><![CDATA[Bastille Day]]></date>
-        <date year="2016" month="8" date="15" type="HOLIDAY"><![CDATA[Assumption Day]]></date>
-        <date year="2016" month="11" date="1" type="HOLIDAY"><![CDATA[All Saints Day]]></date>
-        <date year="2016" month="11" date="11" type="HOLIDAY"><![CDATA[Armistice Day]]></date>
-        <date year="2016" month="12" date="25" type="HOLIDAY"><![CDATA[Christmas Day]]></date>
-        <date year="2016" month="12" date="26" type="HOLIDAY"><![CDATA[Christmas Day (observed)]]></date>
     </calendars>
     <tasks empty-milestones="true">
         <taskproperties>
@@ -148,7 +110,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="6" name="Projet S3" color="#8cb6ce" meeting="false" start="2016-10-13" duration="43" complete="0" expand="false">
+        <task id="6" name="Projet S3" color="#8cb6ce" meeting="false" start="2016-10-13" duration="45" complete="0" expand="false">
             <depend id="175" type="2" difference="0" hardness="Strong"/>
             <task id="52" name="Préparation livrable 1 (Gestion 1)" color="#8cb6ce" meeting="false" start="2016-10-13" duration="6" complete="0" expand="true">
                 <notes><![CDATA[Gantt à jour, suivi des coûts, descriptif de l'approche documentaire. ]]></notes>
@@ -159,6 +121,7 @@
                     <notes><![CDATA[Mise en place des différents documents avec leurs normes (police, mise en forme, contenu...)
 
 Todo : Excel, Word, Powerpoint]]></notes>
+                    <depend id="418" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="90" name="Mise en commun des documents, rectifications" color="#8cb6ce" meeting="false" start="2016-10-14" duration="5" complete="0" expand="true">
                     <notes><![CDATA[Création du github, mise en commun des documents, préparation du livrable]]></notes>
@@ -182,12 +145,12 @@ Destinataires: M.ROTTELEUR, M.GENTHIAL, M.OCCELLO]]></notes>
                 <task id="108" name="Création du diagramme de cas d'utilisation" color="#8cb6ce" meeting="false" start="2016-10-21" duration="7" complete="0" expand="true"/>
                 <task id="109" name="Mise en commun des recherches dans le rapport" color="#8cb6ce" meeting="false" start="2016-10-24" duration="7" complete="0" expand="true"/>
             </task>
-            <task id="54" name="Rendre livrable 2 (Besoins Fonctionnels 1)" color="#8cb6ce" meeting="true" start="2016-11-03" duration="0" complete="0" expand="true">
+            <task id="54" name="Rendre livrable 2 (Besoins Fonctionnels 1)" color="#8cb6ce" meeting="true" start="2016-11-02" duration="0" complete="0" expand="true">
                 <notes><![CDATA[Charges d'Utilisation, Charge du système, Cas d'utilisation
 
 Destinataires: M.OCCELLO, M.ROTTELEUR, M.GENTHIAL]]></notes>
             </task>
-            <task id="55" name="Préparation livrable 3 (Gestion 2)" color="#8cb6ce" meeting="false" start="2016-10-21" duration="22" complete="0" expand="true">
+            <task id="55" name="Préparation livrable 3 (Gestion 2)" color="#8cb6ce" meeting="false" start="2016-10-21" duration="24" complete="0" expand="true">
                 <notes><![CDATA[Gantt à jour avec un suivi des coûts]]></notes>
                 <depend id="56" type="2" difference="0" hardness="Strong"/>
                 <task id="126" name="Mise à jour hebdomadaire du tableau des coûts" color="#8cb6ce" meeting="false" start="2016-10-21" duration="21" complete="0" expand="true"/>
@@ -207,7 +170,7 @@ Etude des solutions techniques]]></notes>
                 <task id="157" name="Etude au point de vue diagrammes" color="#8cb6ce" meeting="false" start="2016-11-03" duration="23" complete="0" expand="true"/>
                 <task id="158" name="Mise en commun dans un cahier des charges" color="#8cb6ce" meeting="false" start="2016-11-03" duration="23" complete="0" expand="true"/>
             </task>
-            <task id="58" name="Remise plan de travail" color="#8cb6ce" meeting="true" start="2016-12-07" duration="0" complete="0" expand="true">
+            <task id="58" name="Remise plan de travail" color="#8cb6ce" meeting="true" start="2016-12-06" duration="0" complete="0" expand="true">
                 <notes><![CDATA[Cahier des charges (avec recueil des besoins)
 Analyse théorique du problème posé
 Etude des solutions techniques
@@ -227,88 +190,379 @@ Destinataire: M.OCCELLO, M.GENTHIAL, M.ROTTELEUR]]></notes>
                 <task id="174" name="Répétitions" color="#8cb6ce" meeting="false" start="2016-12-12" duration="3" complete="0" expand="true">
                     <notes><![CDATA[Introduction des objectifs, du reccueil des besoins, de l'analyse et des choix techniques.]]></notes>
                     <depend id="60" type="2" difference="0" hardness="Strong"/>
-                    <depend id="411" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
             <task id="60" name="Soutenance projet" color="#8cb6ce" meeting="true" start="2016-12-15" duration="0" complete="0" priority="2" expand="true">
                 <notes><![CDATA[Introduction des objectifs, du reccueil des besoins, de l'analyse et des choix techniques.]]></notes>
             </task>
         </task>
-        <task id="175" name="Projet S4" color="#8cb6ce" meeting="false" start="2016-12-15" duration="80" complete="0" expand="true">
-            <task id="406" name="Sprint 1" meeting="false" start="2017-01-09" duration="5" complete="0" expand="true">
-                <task id="407" name="Semaine banalisée pour le développement" color="#8cb6ce" meeting="false" start="2017-01-09" duration="5" complete="0" expand="true">
+        <task id="175" name="Projet S4" color="#8cb6ce" meeting="false" start="2017-01-09" duration="64" complete="0" expand="true">
+            <notes><![CDATA[Dernière partie du projet :
+- Développement du client SNMP Android.
+- Création des documentations de l'application.
+- Création du rapport de projet.
+- Création d'une démonstration vidéo du projet.]]></notes>
+            <task id="406" name="Sprint 1" color="#000000" meeting="false" start="2017-01-09" duration="10" complete="0" expand="false">
+                <notes><![CDATA[Le projet dure 10 semaines effectives (en retirant la semaine de vacances, la semaine de partiels et la dernière semaine banalisée pour la soutenance).
+Le semestre sera donc coupé en 5 sprints de 2 semaines, ce sont des étapes dans la création de l'application avec des objectifs. L'équipe de projet (professeur, étudiants, client) se réunissent de temps en temps afin de débrifer les sprints.
+
+Sprint 1
+Mise en place du projet.
+Recherches sur le protocole SNMP.
+Création d'un agent SNMP statique.
+Création de la MIB.
+Création de l'interface de débogage.]]></notes>
+                <depend id="416" type="2" difference="0" hardness="Strong"/>
+                <task id="407" name="Semaine banalisée pour le développement" color="#66ffcc" meeting="false" start="2017-01-09" duration="5" complete="0" expand="false">
+                    <notes><![CDATA[Semaine de travail banalisée pour le lancement du projet S4.
+Nous nous sommes fixés 7 heures de travail par jour. Pour les calculs nous avons compté comme suit : 
+Une semaine = 7h*5j = 35h.
+35h / 4h (temps normal) = 875%
+Un temps normal sur cette semaine est donc 875%]]></notes>
                     <task id="408" name="Mise en place du projet" color="#8cb6ce" meeting="false" start="2017-01-09" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Informatique)
+Mise en place du projet : 
+- Briefing de début 
+- Mise en place des outils du projet
+- Mise en place du cadre de la semaine banalisée
+- Choix des technologies utilisée pour le développement du projet
+- Création de l'application de base sur android et sauvegarde sous github
+- Mise en place de la librairie SNMP4J sur le projet
+- Début de recherches pour le projet]]></notes>
                         <depend id="409" type="2" difference="0" hardness="Strong"/>
                         <depend id="410" type="2" difference="0" hardness="Strong"/>
                         <depend id="411" type="2" difference="0" hardness="Strong"/>
                         <depend id="412" type="2" difference="0" hardness="Strong"/>
+                        <depend id="545" type="2" difference="0" hardness="Strong"/>
                     </task>
-                    <task id="409" name="Création de la table de sprint" color="#8cb6ce" meeting="false" start="2017-01-10" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
-                    <task id="410" name="Développement de la MIB" color="#8cb6ce" meeting="false" start="2017-01-10" duration="4" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
-                    <task id="411" name="Développement de l'interface de Débogage" color="#8cb6ce" meeting="false" start="2017-01-10" duration="4" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                    <task id="409" name="Création de la table de sprint" color="#ffcc66" meeting="false" start="2017-01-10" duration="4" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Gestion de projet)
+Création d'un document excel reprenant : 
+- La liste des sprints.
+- Un calcul permettant de savoir, pour chaque sprint, quel est le temps de travail total estimé.
+- Les détails de chaques sprints (tâches, objectifs...)
+- L'estimation horaire de chaque tâche.]]></notes>
+                    </task>
+                    <task id="410" name="Début du développement de la MIB" color="#8cb6ce" meeting="false" start="2017-01-10" duration="4" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Informatique)
+Création de la structure de la MIB (arborescence comportant les feuilles permettant l'accès aux informations sur l'appareil).
+Recherche des informations sur l'appareil à reccueillir pour le client (ex : espace de stockage restant, application du client qui a crashé...)
+Création des feuilles de la MIB (classes permettant de retourner des informations sur l'appareil).]]></notes>
+                        <depend id="457" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="411" name="Début du développement de l'interface de Débogage" color="#8cb6ce" meeting="false" start="2017-01-10" duration="4" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Informatique)
+Développement de l'interface graphique de débogage de notre application.
+L'interface possèdera : un affichage des valeurs de la MIB, un affichage de l'état des applications du client (TMM), un affichage des échanges SNMP sur le réseau de l'appareil.]]></notes>
+                        <depend id="458" type="2" difference="0" hardness="Strong"/>
+                    </task>
                     <task id="412" name="Recherches sur le protocole SNMP" color="#8cb6ce" meeting="false" start="2017-01-10" duration="3" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Informatique)
+Recherches fondamentales sur le fonctionnement du protocole SNMP et de la librairie SNMP4J afin de pouvoir commencer à créer un agent SNMP statique.]]></notes>
                         <depend id="414" type="2" difference="0" hardness="Strong"/>
                         <depend id="415" type="2" difference="0" hardness="Strong"/>
                     </task>
                     <task id="413" name="Réunion de lancement avec monsieur Genthial" color="#cc3300" meeting="false" start="2017-01-11" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
-                        <notes><![CDATA[Présentation à monsieur Genthial du premier sprint ainsi que de l'avancée en ce début de projet.]]></notes>
+                        <notes><![CDATA[(Gestion de projet)
+Présentation à monsieur Genthial du premier sprint ainsi que de l'avancée en ce début de projet.]]></notes>
                     </task>
-                    <task id="414" name="Création d'un agent SNMP statique" color="#8cb6ce" meeting="false" start="2017-01-13" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
-                    <task id="415" name="Recherches sur les TRAP" color="#8cb6ce" meeting="false" start="2017-01-13" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                    <task id="414" name="Début de la création d'un agent SNMP statique" color="#8cb6ce" meeting="false" start="2017-01-13" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Informatique)
+Sur la base des précédentes recherches sur le protocole SNMP, création d'un agent SNMP statique qui puisse répondre par des valeurs fixes à des requêtes d'un manager.]]></notes>
+                        <depend id="463" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="415" name="Début de recherches sur les TRAP" color="#8cb6ce" meeting="false" start="2017-01-13" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                        <notes><![CDATA[(Informatique)
+Début de recherches sur le fonctionnement des TRAP via le protocole SNMP.]]></notes>
+                        <depend id="494" type="2" difference="0" hardness="Rubber"/>
+                    </task>
+                </task>
+                <task id="470" name="Gestion des sprints et du planning" color="#ffcc66" meeting="false" start="2017-01-16" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Remplissage et mise à jour de la table des sprints avec les valeurs réelles.
+Mise à jour de l'ancien diagramme Gantt.
+Remplissage du diagramme Gantt en fonction des spécificités du S4.]]></notes>
+                </task>
+                <task id="458" name="Suite du développement de l'interface de Débogage" color="#8cb6ce" meeting="false" start="2017-01-16" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Amélioration de l'interface de débogage, réparation de bugs...]]></notes>
+                </task>
+                <task id="459" name="Compléments de recherches sur le protocole SNMP" color="#8cb6ce" meeting="false" start="2017-01-16" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Compléments de recherches sur le protocole SNMP afin de mieux le maitriser pour avancer dans la création de l'agent statique.]]></notes>
+                </task>
+                <task id="463" name="Suite de la création d'un agent SNMP statique" color="#8cb6ce" meeting="false" start="2017-01-16" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Poursuite de la création de l'agent SNMP statique (traque de bugs, améliorations...).]]></notes>
+                    <depend id="486" type="2" difference="0" hardness="Rubber"/>
+                </task>
+                <task id="457" name="Fin du développement de la MIB" color="#8cb6ce" meeting="false" start="2017-01-16" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Fin du développement de la MIB, création des dernières feuilles, test afin de rendre les données retournées les plus précises possibles. 
+Création d'une documentation de la MIB (diagramme de classes, javadoc).]]></notes>
                 </task>
             </task>
-            <task id="416" name="Sprint 2" meeting="false" start="2016-12-15" duration="1" complete="0" expand="true"/>
-            <task id="200" name="Réunion de lancement avec l'entreprise" color="#cc3300" meeting="false" start="2017-01-26" duration="1" complete="0" expand="true">
-                <notes><![CDATA[Réunion de lancement avec l'entreprise
+            <task id="416" name="Sprint 2" color="#000000" meeting="false" start="2017-01-23" duration="10" complete="0" expand="false">
+                <notes><![CDATA[Sprint 2
+Continuation de l'agent SNMP statique.
+Début de la création de l'agent SNMP dynamique.
+Début du travail sur le système d'émission de TRAPs.
+Continuation de l'interface de débogage.]]></notes>
+                <depend id="418" type="2" difference="0" hardness="Strong"/>
+                <task id="507" name="Gestion des sprints et du planning" color="#ffcc66" meeting="false" start="2017-01-23" duration="10" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Remplissage et mise à jour de la table des sprints avec les valeurs réelles.
+Mise à jour du diagramme Gantt en fonction des spécificités du S4.]]></notes>
+                </task>
+                <task id="486" name="Début de l'adaptation de l'agent statique en agent dynamique" color="#8cb6ce" meeting="false" start="2017-01-23" duration="10" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)]]></notes>
+                </task>
+                <task id="499" name="Suite du développement de l'interface de débogage" color="#8cb6ce" meeting="false" start="2017-01-23" duration="10" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Suite du développement de l'interface de débogage: 
+- Réparation de bugs (rafraîchissement des données).
+- Début du travail sur l'affichage des échanges réseaux SNMP.]]></notes>
+                </task>
+                <task id="494" name="Début de la création du service d'émission de TRAPs" color="#8cb6ce" meeting="false" start="2017-01-23" duration="10" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Début de travail sur un service d'émission de TRAPs : 
+- Mise en place de la liste des feuilles de la MIB à surveiller avec leurs seuils.
+- Création d'un service en tâche de fond qui effectue une boucle infinie de recherche dans la MIB (choisir le délai d'attente).]]></notes>
+                </task>
+                <task id="472" name="Réunion de lancement avec l'entreprise" color="#cc3300" meeting="false" start="2017-01-26" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Réunion de lancement avec l'entreprise
 Présentation de la première et la seconde sprint
 Présentation du travail réalisé pour la première sprint]]></notes>
-                <depend id="270" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="418" name="Sprint 3" meeting="false" start="2016-12-15" duration="1" complete="0" expand="true"/>
-            <task id="420" name="Sprint 4" meeting="false" start="2016-12-15" duration="1" complete="0" expand="true"/>
-            <task id="422" name="Sprint 5" meeting="false" start="2016-12-15" duration="1" complete="0" expand="true"/>
-            <task id="270" name="Création du compte rendu de réunion" color="#cc3300" meeting="false" start="2017-01-27" duration="3" complete="0" expand="true">
-                <depend id="274" type="2" difference="0" hardness="Strong"/>
-            </task>
-            <task id="274" name="Envoi du compte rendu de réunion" color="#cc3300" meeting="true" start="2017-02-01" duration="0" complete="0" expand="true"/>
-            <task id="340" name="Préparation du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="true">
-                <task id="341" name="Mise à jour du diagramme gantt" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="true"/>
-                <task id="342" name="Mise à jour du tableau des coûts" color="#ffcc66" meeting="false" start="2017-02-15" duration="7" complete="0" expand="true"/>
-            </task>
-            <task id="266" name="État d'avancement gestion de projet" color="#ffcc66" meeting="true" start="2017-02-24" duration="0" complete="0" expand="true">
-                <depend id="340" type="4" difference="0" hardness="Strong"/>
-            </task>
-            <task id="347" name="Préparation du livrable état d'avancement" color="#ffcc66" meeting="false" start="2017-03-31" duration="3" complete="0" expand="false">
-                <task id="348" name="Mise à jour du diagramme gantt" color="#ffcc66" meeting="false" start="2017-03-31" duration="3" complete="0" expand="true"/>
-                <task id="349" name="Mise à jour du tableau des coûts" color="#ffcc66" meeting="false" start="2017-03-31" duration="3" complete="0" expand="true"/>
-            </task>
-            <task id="353" name="Préparation du livrable rapport" color="#00cc66" meeting="false" start="2017-02-23" duration="30" complete="0" expand="false">
-                <task id="354" name="Création du rapport final" color="#00cc66" meeting="false" start="2017-02-23" duration="30" complete="0" expand="false">
-                    <task id="355" name="Détail de la réalisation de l'application" color="#00cc66" meeting="false" start="2017-02-23" duration="30" complete="0" expand="true">
-                        <notes><![CDATA[état final
-difficultés rencontrées]]></notes>
-                    </task>
-                    <task id="356" name="Document utilisateur" color="#00cc66" meeting="false" start="2017-02-23" duration="30" complete="0" expand="true"/>
-                    <task id="357" name="Document développeur" color="#00cc66" meeting="false" start="2017-02-23" duration="30" complete="0" expand="true"/>
+                    <depend id="473" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="358" name="Création de la démonstration vidéo" color="#00cc66" meeting="false" start="2017-02-23" duration="30" complete="0" expand="true">
-                    <notes><![CDATA[Présenter : 
+                <task id="473" name="Création du compte rendu de réunion" color="#cc3300" meeting="false" start="2017-01-27" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Rédaction du compte rendu de réunion à rendre à monsieur Genthial.]]></notes>
+                    <depend id="474" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="474" name="Envoi du compte rendu de réunion" color="#cc3300" meeting="true" start="2017-01-30" duration="0" complete="0" expand="true">
+                    <notes><![CDATA[@ : Monsieur Genthial
+CC : Monsieur Massot, l'équipe du projet]]></notes>
+                </task>
+                <task id="475" name="Réunion de sprint 1 avec monsieur Genthial" color="#cc3300" meeting="false" start="2017-01-27" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Compte rendu oral de la réunion avec monsieur Massot.
+Échanges sur le projet, conseils, aide... 
+Présentation du travail réalisé.]]></notes>
+                </task>
+            </task>
+            <task id="418" name="Sprint 3" color="#000000" meeting="false" start="2017-02-06" duration="10" complete="0" expand="false">
+                <notes><![CDATA[Sprint 3
+Continuation de l'interface de débogage.
+Suite de l'agent SNMP dynamique.
+Suite de l'émission de TRAPs.
+Installation d'un manager de test.
+Documentation.]]></notes>
+                <depend id="420" type="2" difference="5" hardness="Strong"/>
+                <task id="542" name="Gestion des sprints" color="#ffcc66" meeting="false" start="2017-02-06" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Remplissage et mise à jour de la table des sprints avec les valeurs réelles.
+Mise à jour du diagramme Gantt en fonction des spécificités du S4.]]></notes>
+                </task>
+                <task id="521" name="Suite et fin de l'interface de débogage" color="#8cb6ce" meeting="false" start="2017-02-06" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique) 
+L'interface de débogage est terminée et testée.
+Des jeux de tests sont effectués et notés afin de les garder pour le rapport final.]]></notes>
+                </task>
+                <task id="519" name="Suite de l'agent dynamique" color="#8cb6ce" meeting="false" start="2017-02-06" duration="10" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Continuation du travail sur l'agent dynamique (il doit à présent être relié à la MIB et accéder à des valeurs rafraichies).]]></notes>
+                </task>
+                <task id="523" name="Suite de l'émission de TRAPs" color="#8cb6ce" meeting="false" start="2017-02-06" duration="10" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Suite sur le travail d'émission de TRAPs. 
+Le système doit pouvoir émettre des alertes pour des problèmes basiques (dépassement de seuil, valeur fausse).]]></notes>
+                </task>
+                <task id="528" name="Installation d'un manager de test" color="#8cb6ce" meeting="false" start="2017-02-06" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Création d'un manager NAGIOS pour les tests de notre agent dynamique.
+Le serveur NAGIOS sera le serveur utilisé par TMM (le client) lorsque l'application sera déployée.]]></notes>
+                </task>
+                <task id="526" name="Documentation de l'application et jeux de tests" color="#8cb6ce" meeting="false" start="2017-02-13" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Création et rassemblement des jeux de tests pour l'application.
+Documentation des classes de l'agent (javadoc). 
+Nettoyage du code.]]></notes>
+                </task>
+            </task>
+            <task id="572" name="Préparation du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="false" start="2017-02-22" duration="2" complete="0" expand="false">
+                <notes><![CDATA[(Vacances scolaires)
+(Gestion de projet)
+Préparation du livrable état d'avancement gestion de projet.]]></notes>
+                <depend id="576" type="2" difference="0" hardness="Strong"/>
+                <task id="574" name="Mise à jour du tableau des coûts" color="#ffcc66" meeting="false" start="2017-02-22" duration="2" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Vérification des mises à jour du tableau des coûts qui auront été effectuées tout au long du projet. 
+Corrections du tableau des coûts et mise en ordre pour le livrable.]]></notes>
+                </task>
+                <task id="575" name="Mise à jour du diagramme gantt" color="#ffcc66" meeting="false" start="2017-02-22" duration="2" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Vérification des mises à jour du diagramme gantt qui auront été effectuées tout au long du projet. 
+Corrections du diagramme gantt et mise en ordre pour le livrable.]]></notes>
+                </task>
+            </task>
+            <task id="576" name="Remise du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="true" start="2017-02-24" duration="0" complete="0" expand="true">
+                <notes><![CDATA[(Gestion de projet)
+Envoi de l'email du livrable gestion de projet : 
+- @ Monsieur Rottelleur.
+- CC l'équipe de projet, monsieur Genthial, monsieur Massot.]]></notes>
+            </task>
+            <task id="420" name="Sprint 4" color="#000000" meeting="false" start="2017-02-27" duration="10" complete="0" expand="false">
+                <notes><![CDATA[Sprint 4
+Fin de l'agent dynamique.
+Fin de l'émission de TRAPs.
+Début des jeux de tests.
+Optimisation en fonction des tests.]]></notes>
+                <depend id="422" type="2" difference="0" hardness="Strong"/>
+                <task id="670" name="Gestion des sprints" color="#ffcc66" meeting="false" start="2017-02-27" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Remplissage et mise à jour de la table des sprints avec les valeurs réelles.
+Mise à jour du diagramme Gantt en fonction des spécificités du S4.]]></notes>
+                </task>
+                <task id="551" name="Fin de l'agent dynamique" color="#8cb6ce" meeting="false" start="2017-02-27" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+L'agent doit être dynamique en renvoyant les valeurs de la MIB en réponse à des requêtes du manager NAGIOS.]]></notes>
+                    <depend id="545" type="2" difference="0" hardness="Strong"/>
+                    <depend id="549" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="553" name="Fin de l'émission de TRAPs" color="#8cb6ce" meeting="false" start="2017-02-27" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Le système sait monitorer la MIB en recherchant dans un fichier de configuration les valeurs et les seuils à vérifier.
+Le système envoi des TRAPs au manager NAGIOS en cas de problème.]]></notes>
+                    <depend id="545" type="2" difference="0" hardness="Strong"/>
+                    <depend id="549" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="545" name="Tests sur l'application" color="#8cb6ce" meeting="false" start="2017-03-06" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Création de jeux de tests pour le projet.
+Application de ces jeux de tests sur le contenu du projet.
+Sauvegarde des résultats dans un fichier pour la documentation.]]></notes>
+                </task>
+                <task id="549" name="Optimisation de l'application" color="#8cb6ce" meeting="false" start="2017-03-06" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+En fonction des jeux de tests et des résultats (surconsommation de la ram, taille de l'application excessive...) optimisation de l'application pour qu'elle convienne aux appareils fournis par le client. 
+Amélioration de l'application.
+Création d'un protocole pour le déploiement de l'application.]]></notes>
+                </task>
+            </task>
+            <task id="422" name="Sprint 5" color="#000000" meeting="false" project="true" start="2017-03-13" duration="10" complete="0" expand="false">
+                <notes><![CDATA[Sprint 5
+Si il existe du retard sur le projet, ce Sprint est dédié au rattrapage du retard. 
+Tests sur l'application pour le déploiement.
+Optimisation de l'application pour le déploiement.]]></notes>
+                <task id="674" name="Gestion des sprints" color="#ffcc66" meeting="false" start="2017-03-13" duration="1" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Remplissage et mise à jour de la table des sprints avec les valeurs réelles.
+Mise à jour du diagramme Gantt en fonction des spécificités du S4.]]></notes>
+                </task>
+                <task id="564" name="Tests sur l'application" color="#8cb6ce" meeting="false" start="2017-03-13" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Création de jeux de tests pour le projet.
+Application de ces jeux de tests sur le contenu du projet.
+Sauvegarde des résultats dans un fichier pour la documentation.]]></notes>
+                    <depend id="566" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="566" name="Optimisation de l'application" color="#8cb6ce" meeting="false" start="2017-03-20" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+En fonction des jeux de tests et des résultats (surconsommation de la ram, taille de l'application excessive...) optimisation de l'application pour qu'elle convienne aux appareils fournis par le client. 
+Amélioration de l'application.
+Création d'un protocole pour le déploiement de l'application.]]></notes>
+                </task>
+            </task>
+            <task id="347" name="Préparation du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="false" start="2017-04-03" duration="2" complete="0" expand="false">
+                <notes><![CDATA[(Gestion de projet)
+Préparation du livrable état d'avancement gestion de projet.]]></notes>
+                <depend id="298" type="2" difference="0" hardness="Strong"/>
+                <task id="348" name="Mise à jour du diagramme gantt" color="#ffcc66" meeting="false" start="2017-04-03" duration="2" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Vérification des mises à jour du diagramme gantt qui auront été effectuées tout au long du projet. 
+Corrections du diagramme gantt et mise en ordre pour le livrable.]]></notes>
+                </task>
+                <task id="349" name="Mise à jour du tableau des coûts" color="#ffcc66" meeting="false" start="2017-04-03" duration="2" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Vérification des mises à jour du tableau des coûts qui auront été effectuées tout au long du projet. 
+Corrections du tableau des coûts et mise en ordre pour le livrable.]]></notes>
+                </task>
+            </task>
+            <task id="353" name="Préparation du livrable rapport" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="false">
+                <notes><![CDATA[(Informatique)
+Préparation du livrable rapport.
+- Création de la démonstration vidéo.
+- Création du rapport final (détail de la réalisation, documentation utilisateur, documentation développeur).]]></notes>
+                <task id="652" name="Mise en place du plan de la démonstration vidéo" color="#00cc66" meeting="false" start="2017-02-27" duration="5" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Création du scénario de la démonstration vidéo. 
+]]></notes>
+                    <depend id="358" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="354" name="Création du rapport final" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="false">
+                    <notes><![CDATA[(Informatique)
+Création du rapport final : 
+- Détail de la réalisation de l'application.
+- Documentation utilisateur (documentation de déploiement).
+- Documentation développeur (jeux de tests, diagrammes...).]]></notes>
+                    <task id="355" name="Détail de la réalisation de l'application" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="true">
+                        <notes><![CDATA[(Informatique)
+Détail de la réalisation de l'application :
+- État final.
+- Difficultés rencontrées.]]></notes>
+                    </task>
+                    <task id="356" name="Documentation utilisateur" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="true">
+                        <notes><![CDATA[(Informatique)
+Documentation utilisateur (documentation de déploiement) :
+- Comment se passera le passage de l'application de l'iut à chez TMM.
+- Comment le déploiement de l'application s'effectuera.
+- Comment utiliser l'interface de débogage.
+- Comment la configuration s'effectuera.]]></notes>
+                    </task>
+                    <task id="357" name="Documentation développeur" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="true">
+                        <notes><![CDATA[(Informatique)
+Documentation développeur:
+- Explication des technologies utilisées.
+- Affichage des diagrammes.
+- Explication du fonctionnement de l'application.
+- Indications d'améliorations de l'application. 
+- Définition des problèmes techniques...]]></notes>
+                    </task>
+                </task>
+                <task id="358" name="Création de la démonstration vidéo" color="#00cc66" meeting="false" start="2017-03-06" duration="23" complete="0" expand="true">
+                    <notes><![CDATA[(Informatique)
+Création de la démonstration vidéo.
+Présenter : 
 - l'équipe du projet
 - le client
 - le besoin initial
 - la solution mise en oeuvre (architecture globale, démonstration du fonctionnement sur les fonctions les plus pertinentes)
-]]></notes>
+Montage.]]></notes>
                 </task>
             </task>
-            <task id="180" name="Semaine banalisée pour la fin de projet" color="#8cb6ce" meeting="false" start="2017-04-03" duration="4" complete="0" expand="true">
+            <task id="180" name="Semaine banalisée pour la fin de projet" color="#66ffcc" meeting="false" start="2017-04-03" duration="4" complete="0" expand="false">
+                <notes><![CDATA[Semaine de travail banalisée pour la fin du projet
+7 heures de travail par jour, pour les calculs nous avons compté comme suit : 
+Une semaine = 7h*4j = 28h.
+4x7  =28 / 4 = 700%
+Un temps normal sur cette semaine est donc 700%]]></notes>
                 <task id="296" name="Préparation de soutenance" color="#ff9900" meeting="false" start="2017-04-03" duration="4" complete="0" expand="true">
+                    <notes><![CDATA[Préparation de la soutenance 
+- oral
+- diaporama]]></notes>
                     <depend id="288" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="298" name="État d'avancement gestion de projet" color="#ffcc66" meeting="true" start="2017-04-05" duration="0" complete="0" expand="true">
-                    <depend id="347" type="4" difference="0" hardness="Strong"/>
+                <task id="298" name="Remise du livrable état d'avancement gestion de projet" color="#ffcc66" meeting="true" start="2017-04-05" duration="0" complete="0" expand="true">
+                    <notes><![CDATA[(Gestion de projet)
+Envoi de l'email du livrable gestion de projet : 
+- @ Monsieur Rottelleur.
+- CC l'équipe de projet, monsieur Genthial, monsieur Massot.]]></notes>
                 </task>
                 <task id="287" name="Remise du livrable rapport" color="#00cc66" meeting="true" start="2017-04-06" duration="0" complete="0" expand="true">
-                    <notes><![CDATA[Cette remise concerne : 
+                    <notes><![CDATA[(Informatique)
+Cette remise concerne : 
 
 - un rapport détaillant la réalisation de l'application (état final, difficultés rencontrées), accompagné d'un document
 utilisateur et d'un document développeur,
@@ -316,7 +570,7 @@ utilisateur et d'un document développeur,
 - une démonstration, sous forme d'une courte vidéo commentée (5 minutes maximum), présentant : l'équipe projet, le client, le besoin initial, la solution mise en œuvre, l'architecture globale, la démonstration du fonctionnement sur les fonctions les plus pertinentes.]]></notes>
                     <depend id="353" type="4" difference="0" hardness="Strong"/>
                 </task>
-                <task id="288" name="Soutenance et démo" color="#ff9900" meeting="true" start="2017-04-07" duration="0" complete="0" expand="true"/>
+                <task id="288" name="Soutenance et démonstration vidéo" color="#ff9900" meeting="true" start="2017-04-07" duration="0" complete="0" expand="true"/>
             </task>
         </task>
     </tasks>
@@ -360,13 +614,40 @@ utilisateur et d'un document développeur,
         <allocation task-id="174" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="171" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
         <allocation task-id="74" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
-        <allocation task-id="200" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
-        <allocation task-id="270" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="408" resource-id="0" function="Default:0" responsible="true" load="62.0"/>
-        <allocation task-id="409" resource-id="0" function="Default:0" responsible="true" load="150.0"/>
+        <allocation task-id="408" resource-id="0" function="Default:0" responsible="true" load="875.0"/>
+        <allocation task-id="409" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
         <allocation task-id="410" resource-id="0" function="Default:0" responsible="true" load="825.0"/>
         <allocation task-id="413" resource-id="0" function="Default:0" responsible="true" load="12.0"/>
         <allocation task-id="414" resource-id="0" function="Default:0" responsible="false" load="12.5"/>
+        <allocation task-id="457" resource-id="0" function="Default:0" responsible="true" load="66.0"/>
+        <allocation task-id="470" resource-id="0" function="Default:0" responsible="true" load="34.0"/>
+        <allocation task-id="472" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="473" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="475" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="474" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="494" resource-id="0" function="Default:0" responsible="false" load="45.0"/>
+        <allocation task-id="507" resource-id="0" function="Default:0" responsible="true" load="55.0"/>
+        <allocation task-id="523" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="528" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="542" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="545" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="564" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="526" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="298" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="287" resource-id="0" function="Default:0" responsible="true" load="0.0"/>
+        <allocation task-id="521" resource-id="0" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="575" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="576" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="553" resource-id="0" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="549" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="348" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="358" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="355" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="566" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="296" resource-id="0" function="Default:0" responsible="true" load="650.0"/>
+        <allocation task-id="670" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="674" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="652" resource-id="0" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="51" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="60" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="103" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
@@ -382,12 +663,27 @@ utilisateur et d'un document développeur,
         <allocation task-id="174" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="173" resource-id="1" function="Default:0" responsible="false" load="0.0"/>
         <allocation task-id="59" resource-id="1" function="Default:0" responsible="false" load="0.0"/>
-        <allocation task-id="200" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
-        <allocation task-id="408" resource-id="1" function="Default:0" responsible="false" load="125.0"/>
-        <allocation task-id="412" resource-id="1" function="Default:0" responsible="false" load="425.0"/>
+        <allocation task-id="408" resource-id="1" function="Default:0" responsible="false" load="875.0"/>
+        <allocation task-id="412" resource-id="1" function="Default:0" responsible="false" load="875.0"/>
         <allocation task-id="413" resource-id="1" function="Default:0" responsible="false" load="12.0"/>
-        <allocation task-id="414" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="415" resource-id="1" function="Default:0" responsible="true" load="175.0"/>
+        <allocation task-id="414" resource-id="1" function="Default:0" responsible="false" load="600.0"/>
+        <allocation task-id="415" resource-id="1" function="Default:0" responsible="true" load="275.0"/>
+        <allocation task-id="459" resource-id="1" function="Default:0" responsible="false" load="34.0"/>
+        <allocation task-id="463" resource-id="1" function="Default:0" responsible="false" load="66.0"/>
+        <allocation task-id="472" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="475" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="486" resource-id="1" function="Default:0" responsible="false" load="55.0"/>
+        <allocation task-id="494" resource-id="1" function="Default:0" responsible="true" load="45.0"/>
+        <allocation task-id="519" resource-id="1" function="Default:0" responsible="false" load="45.0"/>
+        <allocation task-id="523" resource-id="1" function="Default:0" responsible="false" load="55.0"/>
+        <allocation task-id="551" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="553" resource-id="1" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="545" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="549" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="357" resource-id="1" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="564" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="566" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="296" resource-id="1" function="Default:0" responsible="false" load="650.0"/>
         <allocation task-id="51" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="60" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="84" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
@@ -398,12 +694,29 @@ utilisateur et d'un document développeur,
         <allocation task-id="171" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="174" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="173" resource-id="2" function="Default:0" responsible="false" load="0.0"/>
-        <allocation task-id="200" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
-        <allocation task-id="408" resource-id="2" function="Default:0" responsible="false" load="125.0"/>
-        <allocation task-id="410" resource-id="2" function="Default:0" responsible="false" load="400.0"/>
-        <allocation task-id="411" resource-id="2" function="Default:0" responsible="true" load="300.0"/>
+        <allocation task-id="408" resource-id="2" function="Default:0" responsible="false" load="875.0"/>
+        <allocation task-id="410" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="411" resource-id="2" function="Default:0" responsible="true" load="715.0"/>
         <allocation task-id="412" resource-id="2" function="Default:0" responsible="false" load="75.0"/>
         <allocation task-id="413" resource-id="2" function="Default:0" responsible="false" load="12.0"/>
+        <allocation task-id="458" resource-id="2" function="Default:0" responsible="true" load="80.0"/>
+        <allocation task-id="457" resource-id="2" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="472" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="475" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="473" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="499" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="521" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="526" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="574" resource-id="2" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="545" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="549" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="349" resource-id="2" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="358" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="356" resource-id="2" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="652" resource-id="2" function="Default:0" responsible="true" load="75.0"/>
+        <allocation task-id="564" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="566" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="296" resource-id="2" function="Default:0" responsible="false" load="650.0"/>
         <allocation task-id="51" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="60" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="88" resource-id="3" function="Default:0" responsible="true" load="75.0"/>
@@ -413,10 +726,23 @@ utilisateur et d'un document développeur,
         <allocation task-id="156" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="171" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="174" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="200" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
-        <allocation task-id="408" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
-        <allocation task-id="412" resource-id="3" function="Default:0" responsible="true" load="425.0"/>
-        <allocation task-id="414" resource-id="3" function="Default:0" responsible="true" load="275.0"/>
+        <allocation task-id="408" resource-id="3" function="Default:0" responsible="false" load="875.0"/>
+        <allocation task-id="412" resource-id="3" function="Default:0" responsible="true" load="875.0"/>
+        <allocation task-id="414" resource-id="3" function="Default:0" responsible="true" load="875.0"/>
+        <allocation task-id="459" resource-id="3" function="Default:0" responsible="true" load="34.0"/>
+        <allocation task-id="463" resource-id="3" function="Default:0" responsible="true" load="66.0"/>
+        <allocation task-id="486" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="475" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="519" resource-id="3" function="Default:0" responsible="true" load="80.0"/>
+        <allocation task-id="528" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="526" resource-id="3" function="Default:0" responsible="false" load="20.0"/>
+        <allocation task-id="551" resource-id="3" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="545" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="549" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="356" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="564" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="566" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="296" resource-id="3" function="Default:0" responsible="false" load="650.0"/>
     </allocations>
     <vacations>
         <vacation start="2016-10-27" end="2016-11-03" resourceid="0"/>

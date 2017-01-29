@@ -10,4 +10,4 @@ Hardware (.2)
     HwSensorActivity (.4)   - FULLY DONE -
 Services (.3)
     SrvcMustBeOpen (.1)     - FULLY DONE (deprecated in android nougat) -
-    SrvcForegroundTmm (.2)  - DONE (deprecated from android lollipop) -
+    SrvcForegroundTmm (.2)  - FULLY DONE (deprecated from android lollipop) -
