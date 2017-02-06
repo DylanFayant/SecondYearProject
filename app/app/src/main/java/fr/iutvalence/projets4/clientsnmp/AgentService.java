@@ -36,6 +36,7 @@ public class AgentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent workIntent) {
+        Configuration.setContext(this);
         // Gets data from the incoming Intent
         String dataString = workIntent.getDataString();
         // Do work here, based on the contents of dataString
@@ -104,11 +105,11 @@ public class AgentService extends IntentService {
             for(j=1;j<=maxL;j++){
                 if (mergedElements[i][j]== null){
                     builder.addRowValue(new OctetString("No object here"));
-                    Log.d("MERGED","NULL");//Debug
+                    Log.d("MERGED","NULL item "+i+", "+j);//Debug
 
                 }else{
-                    builder.addRowValue(new OctetString(mergedElements[i][j].getValue().toString()));
                     Log.d("MERGED",mergedElements[i][j].getValue().toString());//Debug
+                    builder.addRowValue(new OctetString(mergedElements[i][j].getValue().toString()));
                 }
             }
         }
