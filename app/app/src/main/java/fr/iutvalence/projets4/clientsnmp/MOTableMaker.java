@@ -53,6 +53,7 @@ public class MOTableMaker {
             addColumn(defSyntax,defAccess);
             return addValue(variable,columnIndex,rowIndex);
         }
+
         return this;
 
     }

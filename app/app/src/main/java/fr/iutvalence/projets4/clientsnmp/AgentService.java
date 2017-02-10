@@ -31,8 +31,8 @@ public class AgentService extends IntentService {
     public AgentService(){
         super(AgentService.class.getName());
     }
-    Handler handle= new Handler();
-    SNMPAgent agent;
+    private Handler handle= new Handler();
+    private static SNMPAgent agent;
 
     @Override
     protected void onHandleIntent(Intent workIntent) {
@@ -66,8 +66,6 @@ public class AgentService extends IntentService {
         MIBDictionary dic = new MIBDictionary();
         registerManagedObject(agent, dic.getMIBOids(),dic);
         //runNotifier.run();
-
-
     }
 
 
@@ -114,5 +112,9 @@ public class AgentService extends IntentService {
             }
         }
         agent.registerManagedObject(builder.build());
+    }
+
+    public SNMPAgent getAgent(){
+        return AgentService.agent;
     }
 }
