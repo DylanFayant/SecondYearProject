@@ -13,6 +13,9 @@ import org.snmp4j.smi.Null;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.SMIConstants;
+import org.snmp4j.smi.Variable;
+import org.snmp4j.smi.VariantVariable;
+import org.snmp4j.smi.VariantVariableCallback;
 
 import java.io.IOException;
 import java.util.List;
@@ -109,7 +112,21 @@ public class AgentService extends IntentService {
                     builder.setRowValue(new OctetString("No object here"),i,j);
                 }else{
                     Log.d("MERGED",mergedElements[i][j].getValue().toString());//Debug
-                    builder.setRowValue(new OctetString(mergedElements[i][j].getValue().toString()),i,j);
+
+                    final MIBElement merged =mergedElements[i][j];
+                    VariantVariableCallback cb = new VariantVariableCallback(){
+                        @Override
+                        public void variableUpdated(VariantVariable variantVariable) {
+                            variantVariable.setValue(new OctetString(merged.getValue().toString()));
+                        }
+
+                        @Override
+                        public void updateVariable(VariantVariable variantVariable) {
+                            variantVariable.setValue(new OctetString(merged.getValue().toString()));
+                        }
+                    };
+                    VariantVariable nVar = new VariantVariable(new OctetString("Not updated yet"),cb);
+                    builder.setRowValue(nVar,i,j);
                 }
             }
         }

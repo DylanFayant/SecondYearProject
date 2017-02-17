@@ -19,35 +19,17 @@ import org.snmp4j.smi.Variable;
 
 
 /**
+ * Based on: http://www.jayway.com/2010/05/21/introduction-to-snmp4j/
+ * Utility class to make MOTable objects
  *
- * taken from: http://www.jayway.com/2010/05/21/introduction-to-snmp4j/
- *
- * <p>Utility class for adding dynamic data into an {@link MOTable}</p>
- *
- *
- <pre><code>
- MOTableBuilder builder = new MOTableBuilder(new OID(".1.3.6.1.2.1.2.2.1"))
- .addColumnType(SMIConstants.SYNTAX_INTEGER,MOAccessImpl.ACCESS_READ_ONLY)
- .addColumnType(SMIConstants.SYNTAX_OCTET_STRING,MOAccessImpl.ACCESS_READ_ONLY);
- for(MyObject o: myObjects) {
- builder.addRowValue(new Integer32(o.getId()))
- .addRowValue(new OctetString(o.getName()));
- }
- MOTable table = builder.build();
- </code><pre>
-
- * @author johanrask
- *
+ * Author:Simon Foëx
  */
 public class MOTableBuilder {
 
     private MOTableSubIndex[] subIndexes;
     private MOTableIndex indexDef;
-
     private final List<MOColumn> columns = new ArrayList<MOColumn>();
     private final List<Variable[]> tableRows = new ArrayList<Variable[]>();
-    private int currentRow;
-    private int currentCol;
     private OID tableRootOid;
     private int colTypeCnt;
 
@@ -55,8 +37,6 @@ public class MOTableBuilder {
         subIndexes = new MOTableSubIndex[] { new MOTableSubIndex(
                 SMIConstants.SYNTAX_INTEGER) };
         indexDef = new MOTableIndex(subIndexes, false);
-        currentRow = 0;
-        currentCol = 0;
         colTypeCnt = 0;
     }
 
@@ -65,6 +45,11 @@ public class MOTableBuilder {
      */
     public MOTableBuilder(OID oid) {
         this.tableRootOid = oid;
+        subIndexes = new MOTableSubIndex[] { new MOTableSubIndex(
+                SMIConstants.SYNTAX_INTEGER) };
+        indexDef = new MOTableIndex(subIndexes, false);
+        colTypeCnt = 0;
+
     }
 
     /**
@@ -79,20 +64,6 @@ public class MOTableBuilder {
     public MOTableBuilder addColumnType(int syntax, MOAccess access) {
         colTypeCnt++;
         columns.add(new MOColumn(colTypeCnt, syntax, access));
-        return this;
-    }
-
-
-    public MOTableBuilder addRowValue(Variable variable) {
-        if (tableRows.size() == currentRow) {
-            tableRows.add(new Variable[columns.size()]);
-        }
-        tableRows.get(currentRow)[currentCol] = variable;
-        currentCol++;
-        if (currentCol >= columns.size()) {
-            currentRow++;
-            currentCol = 0;
-        }
         return this;
     }
 
