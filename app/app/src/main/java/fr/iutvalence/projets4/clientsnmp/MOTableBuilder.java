@@ -1,5 +1,7 @@
 package fr.iutvalence.projets4.clientsnmp;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,19 +41,24 @@ import org.snmp4j.smi.Variable;
  */
 public class MOTableBuilder {
 
-    private MOTableSubIndex[] subIndexes = new MOTableSubIndex[] { new MOTableSubIndex(
-            SMIConstants.SYNTAX_INTEGER) };
-    private MOTableIndex indexDef = new MOTableIndex(subIndexes, false);
+    private MOTableSubIndex[] subIndexes;
+    private MOTableIndex indexDef;
 
     private final List<MOColumn> columns = new ArrayList<MOColumn>();
     private final List<Variable[]> tableRows = new ArrayList<Variable[]>();
-    private int currentRow = 0;
-    private int currentCol = 0;
-
+    private int currentRow;
+    private int currentCol;
     private OID tableRootOid;
+    private int colTypeCnt;
 
-    private int colTypeCnt = 0;
-
+    public MOTableBuilder(){
+        subIndexes = new MOTableSubIndex[] { new MOTableSubIndex(
+                SMIConstants.SYNTAX_INTEGER) };
+        indexDef = new MOTableIndex(subIndexes, false);
+        currentRow = 0;
+        currentCol = 0;
+        colTypeCnt = 0;
+    }
 
     /**
      * Specified oid is the root oid of this table
@@ -89,6 +96,14 @@ public class MOTableBuilder {
         return this;
     }
 
+    public MOTableBuilder setRowValue(Variable variable, int col, int row) {
+        while (tableRows.size() <= row) {
+            tableRows.add(new Variable[columns.size()]);
+        }
+        tableRows.get(row-1)[col-1] = variable;
+        return this;
+    }
+
     public MOTable build() {
         DefaultMOTable ifTable = new DefaultMOTable(tableRootOid, indexDef,
                 columns.toArray(new MOColumn[0]));
@@ -96,10 +111,12 @@ public class MOTableBuilder {
         int i = 1;
 
         for (Variable[] variables : tableRows) {
+
             model.addRow(new DefaultMOMutableRow2PC(new OID(String.valueOf(i)),
                     variables));
             i++;
         }
+        Log.d("Column count", ""+model.getColumnCount()+"\n");
         ifTable.setVolatile(true);
         return ifTable;
     }

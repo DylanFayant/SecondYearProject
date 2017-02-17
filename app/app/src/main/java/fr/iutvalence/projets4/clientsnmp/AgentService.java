@@ -97,17 +97,19 @@ public class AgentService extends IntentService {
             if(maxL<line)maxL=line;
         }
         ////////////////////////////////////////////////////////////////////////////////////////
+        Log.d("MAXC",""+maxC);
+        Log.d("MAXL",""+maxL);
         MOTableBuilder builder = new MOTableBuilder(baseOID);
         for(i=1;i<=maxC;i++){
             builder.addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE);
+        }
+        for(i=1;i<=maxC;i++){
             for(j=1;j<=maxL;j++){
                 if (mergedElements[i][j]== null){
-                    builder.addRowValue(new OctetString("No object here"));
-                    Log.d("MERGED","NULL item "+i+", "+j);//Debug
-
+                    builder.setRowValue(new OctetString("No object here"),i,j);
                 }else{
                     Log.d("MERGED",mergedElements[i][j].getValue().toString());//Debug
-                    builder.addRowValue(new OctetString(mergedElements[i][j].getValue().toString()));
+                    builder.setRowValue(new OctetString(mergedElements[i][j].getValue().toString()),i,j);
                 }
             }
         }
