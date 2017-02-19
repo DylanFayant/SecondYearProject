@@ -6,29 +6,24 @@ import android.os.Handler;
 import android.util.Log;
 
 import org.snmp4j.agent.mo.MOAccessImpl;
-import org.snmp4j.security.UsmUser;
-import org.snmp4j.security.UsmUserEntry;
-import org.snmp4j.smi.Integer32;
-import org.snmp4j.smi.Null;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.SMIConstants;
-import org.snmp4j.smi.Variable;
 import org.snmp4j.smi.VariantVariable;
 import org.snmp4j.smi.VariantVariableCallback;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
-import fr.iutvalence.projets4.clientsnmp.AgentTest.MOCreator;
 import fr.iutvalence.projets4.clientsnmp.AgentTest.SNMPAgent;
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 
-import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBElement;
 
-import static org.snmp4j.mp.SnmpConstants.sysDescr;
-
+/**
+ * Updated by Simon Foëx on 19/02/2017.
+ */
 public class AgentService extends IntentService {
 
     public AgentService(){
@@ -44,16 +39,7 @@ public class AgentService extends IntentService {
         String dataString = workIntent.getDataString();
         // Do work here, based on the contents of dataString
         Log.d("Test", "Service lancé");
-        Log.d("Test", "Donnée:" + dataString);
 
-
-        Runnable runNotifier =new Runnable(){
-            @Override
-            public void run() {
-                handle.postDelayed(this, 2000);
-                Log.d("Notifier","Agent is running");
-            }
-        };
         try {
             agent = new SNMPAgent("udp:127.0.0.1/2001");
             agent.start();
@@ -67,72 +53,108 @@ public class AgentService extends IntentService {
         agent.unregisterManagedObject(agent.getSnmpv2MIB());
 
         MIBDictionary dic = new MIBDictionary();
-        registerManagedObject(agent, dic.getMIBOids(),dic);
-        //runNotifier.run();
+        registerManagedObject(dic.getMIBOids(),dic);
+        /*runNotifier.run();
+         Runnable runNotifier =new Runnable(){
+            @Override
+            public void run() {
+                handle.postDelayed(this, 2000);
+                Log.d("Notifier","Agent is running");
+            }
+        };
+        */
     }
 
 
     /**
      * Register all Managed Objects from our MIB
-     * @param agent an snmpv2 agent to register the values onto
      * @param oidList a list of OID with the same baseOID (size-2)
      * @param dic the dictionary where the values are
      */
-    private void registerManagedObject(SNMPAgent agent,List<OID> oidList, MIBDictionary dic){
+    private void registerManagedObject(List<OID> oidList, MIBDictionary dic) {
 
         ////////////////////////////////////////////////////////////////////////////////////////
-        MIBElement[][] mergedElements = new MIBElement[OID.MAX_OID_LEN][OID.MAX_OID_LEN];
-        OID baseOID=oidList.get(1).trim().trim();
+        OID baseOID;
         int i;
-        int j;
         int column;
         int line;
-        int maxC=1;
-        int maxL=1;
-        for (i = 0; i<oidList.size(); i++) {
-            OID current=oidList.get(i);
-            Log.d("current",current.toString());//Debug
+        Log.d("new version","here");
+        HashMap<OID,MOTableCharacteristics> buildable = new HashMap<>();
+        for (i = 0; i < oidList.size(); i++) {
+
+            OID current = oidList.get(i);
+
+            baseOID = current.trim().trim();
+
+            if (!buildable.containsKey(baseOID)){
+                buildable.put(baseOID, new MOTableCharacteristics(baseOID));
+            }
+
             int[] parsedOID = current.toIntArray();
-            column = parsedOID[parsedOID.length-2];
-            line=parsedOID[parsedOID.length-1];
-            mergedElements[column][line]=dic.getMIBElement(current);
-            if(maxC<column)maxC=column;
-            if(maxL<line)maxL=line;
+            column = parsedOID[parsedOID.length - 2];
+            line = parsedOID[parsedOID.length - 1];
+
+            MOTableCharacteristics working = buildable.get(baseOID);
+
+            if(working.columnCount<column) working.setColumnCount(column);
+            if(working.rowCount<line) working.setRowCount(line);
+            MIBElement[][] workingE = working.getElements();
+            workingE[column][line]= dic.getMIBElement(current);
+            working.setElements(workingE);
+
+            buildable.put(baseOID, working);
         }
+
+        for(OID charac: buildable.keySet()){
+            MOTableCharacteristics current = buildable.get(charac);
+            buildMOTable(current.getColumnCount(),current.getRowCount(),current.getBaseOID(),current.getElements());
+        }
+    }
         ////////////////////////////////////////////////////////////////////////////////////////
-        Log.d("MAXC",""+maxC);
-        Log.d("MAXL",""+maxL);
-        MOTableBuilder builder = new MOTableBuilder(baseOID);
-        for(i=1;i<=maxC;i++){
-            builder.addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE);
-        }
-        for(i=1;i<=maxC;i++){
-            for(j=1;j<=maxL;j++){
-                if (mergedElements[i][j]== null){
-                    builder.setRowValue(new OctetString("No object here"),i,j);
-                }else{
-                    Log.d("MERGED",mergedElements[i][j].getValue().toString());//Debug
 
-                    final MIBElement merged =mergedElements[i][j];
-                    VariantVariableCallback cb = new VariantVariableCallback(){
-                        @Override
-                        public void variableUpdated(VariantVariable variantVariable) {
-                            variantVariable.setValue(new OctetString(merged.getValue().toString()));
-                        }
+    /**
+     * Build and register in the MOTable each element, and setting them to the baseOID.column.line OID
+     * if you want to register an element at 1.2.3.4.5.6.7.8.9, base OID should be 1.2.3.4.5.6.7 and the element should be at mergedElements[8][9]
+     * @param columnCount number of column in the array
+     * @param lineCount number of lines in the array
+     * @param baseOID common OID used in all the values as a prefix
+     * @param mergedElements Array containing all the elements you want to register, syntax is MIBElement[column][line]
+     */
+        public void buildMOTable(int columnCount, int lineCount, OID baseOID, MIBElement[][] mergedElements){
+            Log.d("MAXC",""+columnCount);
+            Log.d("MAXL",""+lineCount);
+            MOTableBuilder builder = new MOTableBuilder(baseOID);
+            int i;
+            int j;
+            for(i=1;i<=columnCount;i++){
+                builder.addColumnType(SMIConstants.SYNTAX_OCTET_STRING, MOAccessImpl.ACCESS_READ_WRITE);
+            }
+            for(i=1;i<=columnCount;i++){
+                for(j=1;j<=lineCount;j++){
+                    if (mergedElements[i][j]== null){
+                        builder.setRowValue(null,i,j);
+                    }else{
+                        Log.d("MERGED",mergedElements[i][j].getValue().toString());//Debug
 
-                        @Override
-                        public void updateVariable(VariantVariable variantVariable) {
-                            variantVariable.setValue(new OctetString(merged.getValue().toString()));
-                        }
-                    };
-                    VariantVariable nVar = new VariantVariable(new OctetString("Not updated yet"),cb);
-                    builder.setRowValue(nVar,i,j);
+                        final MIBElement merged =mergedElements[i][j];
+                        VariantVariableCallback cb = new VariantVariableCallback(){
+                            @Override
+                            public void variableUpdated(VariantVariable variantVariable) {
+                                variantVariable.setValue(new OctetString(merged.getValue().toString()));
+                            }
+
+                            @Override
+                            public void updateVariable(VariantVariable variantVariable) {
+                                variantVariable.setValue(new OctetString(merged.getValue().toString()));
+                            }
+                        };
+                        VariantVariable nVar = new VariantVariable(new OctetString("Not updated yet"),cb);
+                        builder.setRowValue(nVar,i,j);
+                    }
                 }
             }
+            agent.registerManagedObject(builder.build());
         }
-        agent.registerManagedObject(builder.build());
-    }
-
     public SNMPAgent getAgent(){
         return AgentService.agent;
     }

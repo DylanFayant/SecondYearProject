@@ -3,6 +3,7 @@ package fr.iutvalence.projets4.clientsnmp.MIB;
 import android.util.Log;
 
 import org.snmp4j.smi.OID;
+import org.snmp4j.smi.OctetString;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
