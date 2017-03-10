@@ -41,7 +41,7 @@ public class AgentService extends IntentService {
         Log.d("Test", "Service lancé");
 
         try {
-            agent = new SNMPAgent("udp:127.0.0.1/2001");
+            agent = new SNMPAgent("udp:"+Utils.getIPAddress(true)+"/2001");
             agent.start();
         } catch (IOException e) {
             e.printStackTrace();
