@@ -41,7 +41,7 @@ public class MOTableBuilder {
     }
 
     /**
-     * Specified oid is the root oid of this table
+     * @param oid the root oid of this table
      */
     public MOTableBuilder(OID oid) {
         this.tableRootOid = oid;
@@ -67,6 +67,13 @@ public class MOTableBuilder {
         return this;
     }
 
+    /**
+     *
+     * @param variable Variable to register
+     * @param col the second to last sub id of the data
+     * @param row the last sub id of the data
+     * @return updated builder
+     */
     public MOTableBuilder setRowValue(Variable variable, int col, int row) {
         while (tableRows.size() <= row) {
             tableRows.add(new Variable[columns.size()]);
@@ -75,6 +82,12 @@ public class MOTableBuilder {
         return this;
     }
 
+    /**
+     *
+     * Make a MOTable using the current MOTableBuilder
+     *
+     * @return target MOTable
+     */
     public MOTable build() {
         DefaultMOTable ifTable = new DefaultMOTable(tableRootOid, indexDef,
                 columns.toArray(new MOColumn[0]));

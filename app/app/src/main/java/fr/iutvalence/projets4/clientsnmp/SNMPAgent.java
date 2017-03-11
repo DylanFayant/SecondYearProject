@@ -1,4 +1,6 @@
-package fr.iutvalence.projets4.clientsnmp.AgentTest;
+package fr.iutvalence.projets4.clientsnmp;
+
+import android.util.Log;
 
 import org.snmp4j.TransportMapping;
 import org.snmp4j.agent.BaseAgent;
@@ -137,8 +139,7 @@ public class SNMPAgent extends BaseAgent {
     protected void initTransportMappings() throws IOException {
         transportMappings = new TransportMapping[1];
         Address addr = GenericAddress.parse(address);
-        TransportMapping tm = TransportMappings.getInstance()
-                .createTransportMapping(addr);
+        TransportMapping tm = TransportMappings.getInstance().createTransportMapping(addr);
         transportMappings[0] = tm;
     }
 

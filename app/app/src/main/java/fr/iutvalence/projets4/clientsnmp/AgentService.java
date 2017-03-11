@@ -2,6 +2,8 @@ package fr.iutvalence.projets4.clientsnmp;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.util.Log;
 
@@ -16,7 +18,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import fr.iutvalence.projets4.clientsnmp.AgentTest.SNMPAgent;
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBDictionary;
 
 import fr.iutvalence.projets4.clientsnmp.MIB.MIBElement;
@@ -39,13 +40,17 @@ public class AgentService extends IntentService {
         String dataString = workIntent.getDataString();
         // Do work here, based on the contents of dataString
         Log.d("Test", "Service lancé");
-
-        try {
-            agent = new SNMPAgent("udp:"+Utils.getIPAddress(true)+"/2001");
-            agent.start();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(NetUtils.checkNetworkAvailable(this)){
+            try {
+                agent = new SNMPAgent("udp:"+ NetUtils.getIPAddress(true)+"/2001");
+                agent.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            Log.d("INFO","Aucune interface réseau détéectée");
         }
+
 
         // Since BaseAgent registers some MIBs by default we need to unregister
         // one before we register our own sysDescr. Normally you would
