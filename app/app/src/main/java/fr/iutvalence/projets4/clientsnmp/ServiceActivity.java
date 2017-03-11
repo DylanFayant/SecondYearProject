@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import fr.iutvalence.projets4.clientsnmp.MIB.MIBElement;
+import fr.iutvalence.projets4.clientsnmp.Agent.AgentService;
 
 public class ServiceActivity extends Activity {
     Intent intent;
