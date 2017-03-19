@@ -27,6 +27,8 @@ import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.Variable;
 import org.snmp4j.transport.TransportMappings;
+import fr.iutvalence.projets4.clientsnmp.Configuration;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -66,13 +68,14 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void addCommunities(SnmpCommunityMIB communityMIB) {
-        Variable[] com2sec = new Variable[] { new OctetString("public"),
+        Variable[] com2sec = new Variable[] { new OctetString(Configuration.getConfigValue("snmp_community")),
                 new OctetString("cpublic"), // security name
                 getAgent().getContextEngineID(), // local engine ID
-                new OctetString("public"), // default context name
+                new OctetString(Configuration.getConfigValue("snmp_community")), // default context name
                 new OctetString(), // transport tag
                 new Integer32(StorageType.nonVolatile), // storage type
                 new Integer32(RowStatus.active) // row status
+                //TODO add conf
         };
         MOTableRow row = communityMIB.getSnmpCommunityEntry().createRow(
                 new OctetString("public2public").toSubIndex(true), com2sec);
@@ -85,7 +88,6 @@ public class SNMPAgent extends BaseAgent {
     @Override
     protected void addNotificationTargets(SnmpTargetMIB arg0,
                                           SnmpNotificationMIB arg1) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -94,7 +96,6 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void addUsmUser(USM arg0) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -107,7 +108,7 @@ public class SNMPAgent extends BaseAgent {
                         "cpublic"), new OctetString("v1v2group"),
                 StorageType.nonVolatile);
 
-        vacm.addAccess(new OctetString("v1v2group"), new OctetString("public"),
+        vacm.addAccess(new OctetString("v1v2group"), new OctetString(Configuration.getConfigValue("snmp_community")),
                 SecurityModel.SECURITY_MODEL_ANY, SecurityLevel.NOAUTH_NOPRIV,
                 MutableVACM.VACM_MATCH_EXACT, new OctetString("fullReadView"),
                 new OctetString("fullWriteView"), new OctetString(
@@ -123,7 +124,6 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void unregisterManagedObjects() {
-        // TODO Auto-generated method stub
 
     }
 
@@ -132,11 +132,11 @@ public class SNMPAgent extends BaseAgent {
      */
     @Override
     protected void registerManagedObjects() {
-        // TODO Auto-generated method stub
 
     }
 
     protected void initTransportMappings() throws IOException {
+        Log.d("Community:",Configuration.getConfigValue("snmp_community"));
         transportMappings = new TransportMapping[1];
         Address addr = GenericAddress.parse(address);
         TransportMapping tm = TransportMappings.getInstance().createTransportMapping(addr);
@@ -156,7 +156,7 @@ public class SNMPAgent extends BaseAgent {
         // unexpected behavior.
         // loadConfig(ImportModes.REPLACE_CREATE);
         addShutdownHook();
-        getServer().addContext(new OctetString("public"));
+        getServer().addContext(new OctetString(Configuration.getConfigValue("snmp_community")));
         finishInit();
         run();
         sendColdStartNotification();

@@ -3,7 +3,9 @@ package fr.iutvalence.projets4.clientsnmp.Agent;
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.snmp4j.agent.mo.MOAccessImpl;
 import org.snmp4j.smi.OID;
@@ -38,38 +40,33 @@ public class AgentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent workIntent) {
         Configuration.setContext(this);
-        // Gets data from the incoming Intent
-        String dataString = workIntent.getDataString();
-        // Do work here, based on the contents of dataString
-        Log.d("Test", "Service lancé");
+        while(true){
         if(NetUtils.checkNetworkAvailable(this)){
             try {
-                agent = new SNMPAgent("udp:"+ NetUtils.getIPAddress(true)+"/2001");
+                String ip;
+                if (Configuration.getConfigValue("network_device_ip").equals("auto")){
+                    ip=NetUtils.getIPAddress(true);
+                }else{
+                    ip=Configuration.getConfigValue("network_device_ip");
+                }
+                Log.d("IP",ip+"");
+                agent = new SNMPAgent("udp:"+ip+"/"+Configuration.getConfigValue("network_answer_port"));
                 agent.start();
+                // Since BaseAgent registers some MIBs by default we need to unregister
+                // one before we register our own sysDescr. Normally you would
+                // override that method and register the MIBs that you need
+                agent.unregisterManagedObject(agent.getSnmpv2MIB());
+                MIBDictionary dic = new MIBDictionary();
+                registerManagedObject(dic.getMIBOids(),dic);
+                break;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }else{
             Log.d("INFO","Aucune interface réseau détéectée");
         }
-
-
-        // Since BaseAgent registers some MIBs by default we need to unregister
-        // one before we register our own sysDescr. Normally you would
-        // override that method and register the MIBs that you need
-        agent.unregisterManagedObject(agent.getSnmpv2MIB());
-
-        MIBDictionary dic = new MIBDictionary();
-        registerManagedObject(dic.getMIBOids(),dic);
-        /*runNotifier.run();
-         Runnable runNotifier =new Runnable(){
-            @Override
-            public void run() {
-                handle.postDelayed(this, 2000);
-                Log.d("Notifier","Agent is running");
-            }
-        };
-        */
+            SystemClock.sleep(5000);
+        }
     }
 
 

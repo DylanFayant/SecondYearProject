@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import fr.iutvalence.projets4.clientsnmp.Agent.AgentService;
 
