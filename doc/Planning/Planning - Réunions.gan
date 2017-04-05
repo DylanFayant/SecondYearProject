@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2017-03-23" view-index="1" gantt-divider-location="528" resource-divider-location="569" version="2.8.3" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Client SNMP Android" company="" webLink="http://" view-date="2017-03-21" view-index="0" gantt-divider-location="528" resource-divider-location="569" version="2.8.3" locale="en_US">
     <description/>
-    <view zooming-state="default:0" id="gantt-chart">
+    <view zooming-state="default:1" id="gantt-chart">
         <field id="tpd3" name="Name" width="349" order="0"/>
         <field id="tpd4" name="Begin date" width="97" order="1"/>
         <field id="tpd5" name="End date" width="78" order="2"/>
@@ -95,7 +95,6 @@
         <date year="2013" month="11" date="11" type="HOLIDAY"><![CDATA[Armistice Day]]></date>
         <date year="2013" month="12" date="25" type="HOLIDAY"><![CDATA[Christmas Day]]></date>
         <date year="2014" month="1" date="1" type="HOLIDAY"><![CDATA[New Years Day]]></date>
-        <date year="2014" month="4" date="21" type="HOLIDAY"><![CDATA[Easter Monday]]></date>
     </calendars>
     <tasks empty-milestones="true">
         <taskproperties>
@@ -384,6 +383,28 @@ Le système doit pouvoir émettre des alertes pour des problèmes basiques (dép
 Création d'un manager NAGIOS pour les tests de notre agent dynamique.
 Le serveur NAGIOS sera le serveur utilisé par TMM (le client) lorsque l'application sera déployée.]]></notes>
                 </task>
+                <task id="677" name="Réunion de fin de sprint 2 avec l'entreprise" color="#cc3300" meeting="false" start="2017-02-09" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[(Gestion de projet)
+Réunion de sprint 2 avec l'entreprise
+Présentation de la seconde et la troisième sprint
+Présentation du travail réalisé pour la seconde sprint]]></notes>
+                    <depend id="679" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="679" name="Création du compte rendu de réunion" color="#cc3300" meeting="false" start="2017-02-10" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[(Gestion de projet)
+Rédaction du compte rendu de réunion à rendre à monsieur Genthial.]]></notes>
+                    <depend id="681" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="683" name="Réunion de sprint 2 avec monsieur Genthial" color="#cc3300" meeting="false" start="2017-02-10" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[(Gestion de projet)
+Compte rendu oral de la réunion avec monsieur Massot.
+Échanges sur le projet, conseils, aide... 
+Présentation du travail réalisé.]]></notes>
+                </task>
+                <task id="681" name="Envoi du compte rendu de réunion" color="#cc3300" meeting="true" start="2017-02-13" duration="0" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[@ : Monsieur Genthial
+CC : Monsieur Massot, l'équipe du projet]]></notes>
+                </task>
                 <task id="526" name="Documentation de l'application et jeux de tests" color="#8cb6ce" meeting="false" start="2017-02-13" duration="5" complete="0" expand="true">
                     <notes><![CDATA[(Informatique)
 Création et rassemblement des jeux de tests pour l'application.
@@ -450,8 +471,15 @@ En fonction des jeux de tests et des résultats (surconsommation de la ram, tail
 Amélioration de l'application.
 Création d'un protocole pour le déploiement de l'application.]]></notes>
                 </task>
+                <task id="689" name="Réunion de fin de sprint 3 et 4 avec l'entreprise et monsieur Genthial" color="#cc3300" meeting="false" start="2017-03-10" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[(Gestion de projet)
+Réunion de sprint 3 et 4  avec l'entreprise et monsieur Genthial
+Présentation de la troisième et la quatrième sprint
+Présentation du travail à faire pour la dernière sprint]]></notes>
+                    <depend id="691" type="2" difference="0" hardness="Strong"/>
+                </task>
             </task>
-            <task id="422" name="Sprint 5" color="#000000" meeting="false" project="true" start="2017-03-13" duration="10" complete="0" expand="false">
+            <task id="422" name="Sprint 5" color="#000000" meeting="false" project="true" start="2017-03-13" duration="10" complete="0" expand="true">
                 <notes><![CDATA[Sprint 5
 Si il existe du retard sur le projet, ce Sprint est dédié au rattrapage du retard. 
 Tests sur l'application pour le déploiement.
@@ -460,6 +488,15 @@ Optimisation de l'application pour le déploiement.]]></notes>
                     <notes><![CDATA[(Gestion de projet)
 Remplissage et mise à jour de la table des sprints avec les valeurs réelles.
 Mise à jour du diagramme Gantt en fonction des spécificités du S4.]]></notes>
+                </task>
+                <task id="691" name="Création du compte rendu de réunion" color="#cc3300" meeting="false" start="2017-03-13" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[(Gestion de projet)
+Rédaction du compte rendu de réunion à rendre à monsieur Genthial.]]></notes>
+                    <depend id="695" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="695" name="Envoi du compte rendu de réunion" color="#cc3300" meeting="true" start="2017-03-14" duration="0" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <notes><![CDATA[@ : Monsieur Genthial
+CC : Monsieur Massot, l'équipe du projet]]></notes>
                 </task>
                 <task id="564" name="Tests sur l'application" color="#8cb6ce" meeting="false" start="2017-03-13" duration="5" complete="0" expand="true">
                     <notes><![CDATA[(Informatique)
@@ -490,7 +527,7 @@ Vérification des mises à jour du tableau des coûts qui auront été effectué
 Corrections du tableau des coûts et mise en ordre pour le livrable.]]></notes>
                 </task>
             </task>
-            <task id="353" name="Préparation du livrable rapport" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="false">
+            <task id="353" name="Préparation du livrable rapport" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="true">
                 <notes><![CDATA[(Informatique)
 Préparation du livrable rapport.
 - Création de la démonstration vidéo.
@@ -501,7 +538,7 @@ Création du scénario de la démonstration vidéo.
 ]]></notes>
                     <depend id="358" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="354" name="Création du rapport final" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="false">
+                <task id="354" name="Création du rapport final" color="#00cc66" meeting="false" start="2017-02-27" duration="28" complete="0" expand="true">
                     <notes><![CDATA[(Informatique)
 Création du rapport final : 
 - Détail de la réalisation de l'application.
@@ -652,6 +689,13 @@ utilisateur et d'un document développeur,
         <allocation task-id="670" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
         <allocation task-id="674" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
         <allocation task-id="652" resource-id="0" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="677" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="679" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="681" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
+        <allocation task-id="683" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="689" resource-id="0" function="Default:0" responsible="true" load="25.0"/>
+        <allocation task-id="691" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="695" resource-id="0" function="Default:0" responsible="true" load="10.0"/>
         <allocation task-id="51" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="60" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="103" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
@@ -688,6 +732,9 @@ utilisateur et d'un document développeur,
         <allocation task-id="564" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="566" resource-id="1" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="296" resource-id="1" function="Default:0" responsible="false" load="650.0"/>
+        <allocation task-id="677" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="683" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="689" resource-id="1" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="51" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="60" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="84" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
@@ -721,6 +768,11 @@ utilisateur et d'un document développeur,
         <allocation task-id="564" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="566" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="296" resource-id="2" function="Default:0" responsible="false" load="650.0"/>
+        <allocation task-id="677" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="679" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="683" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="689" resource-id="2" function="Default:0" responsible="false" load="25.0"/>
+        <allocation task-id="691" resource-id="2" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="51" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="60" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
         <allocation task-id="88" resource-id="3" function="Default:0" responsible="true" load="75.0"/>
@@ -747,6 +799,7 @@ utilisateur et d'un document développeur,
         <allocation task-id="564" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="566" resource-id="3" function="Default:0" responsible="false" load="50.0"/>
         <allocation task-id="296" resource-id="3" function="Default:0" responsible="false" load="650.0"/>
+        <allocation task-id="683" resource-id="3" function="Default:0" responsible="false" load="25.0"/>
     </allocations>
     <vacations>
         <vacation start="2016-10-27" end="2016-11-03" resourceid="0"/>

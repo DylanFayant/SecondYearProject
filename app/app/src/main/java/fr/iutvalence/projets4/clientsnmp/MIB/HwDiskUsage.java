@@ -42,7 +42,7 @@ public class HwDiskUsage implements MIBComposite, MIBElement<Double> {
      */
     @Override
     public Double getValue() {
-        return (double)getInternalUsedSpace()/(double)getInternalStorageSpace();
+        return ((double)getInternalUsedSpace()/(double)getInternalStorageSpace())*100;
     }
 
     /**
@@ -55,7 +55,7 @@ public class HwDiskUsage implements MIBComposite, MIBElement<Double> {
 
         long total = 0L;
 
-        if(Build.VERSION.SDK_INT < 18) {
+        if(Build.VERSION.SDK_INT < 27) {
             total = ((long) statFs.getBlockCount() * (long) statFs.getBlockSize());
         }
         else
@@ -77,7 +77,7 @@ public class HwDiskUsage implements MIBComposite, MIBElement<Double> {
         long total = 0L;
         long free  = 0L;
 
-        if(Build.VERSION.SDK_INT < 18) {
+        if(Build.VERSION.SDK_INT < 27) {
             total = ((long)statFs.getBlockCount() * (long)statFs.getBlockSize());
             free  = ((long)statFs.getAvailableBlocks() * (long)statFs.getBlockSize());
         }
