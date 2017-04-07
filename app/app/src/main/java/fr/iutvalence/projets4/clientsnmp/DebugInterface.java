@@ -80,9 +80,9 @@ DebugInterface extends ActionBarActivity {
         host.addTab(spec);
 
         //Initialize Tab 2 in TabHost and set this name
-        spec = host.newTabSpec("List Process");
+        spec = host.newTabSpec("Process List");
         spec.setContent(R.id.tab2);
-        spec.setIndicator("List Process");
+        spec.setIndicator("Process List");
         host.addTab(spec);
 
         //Initialize Tab 3 in TabHost and set this name
